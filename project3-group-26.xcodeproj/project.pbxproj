@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E75F05AE20AE8E82009FC568 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AD20AE8E82009FC568 /* MapViewController.swift */; };
+		E75F05B020AE99B2009FC568 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AF20AE99B2009FC568 /* Speech.swift */; };
 		E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */; };
 		E7A43B5820A9628E00DCFF50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5720A9628E00DCFF50 /* ViewController.swift */; };
 		E7A43B5B20A9628E00DCFF50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A43B5920A9628E00DCFF50 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		E75F05AD20AE8E82009FC568 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E75F05AF20AE99B2009FC568 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		E7A43B5220A9628D00DCFF50 /* project3-group-26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project3-group-26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7A43B5720A9628E00DCFF50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */,
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
+				E75F05AF20AE99B2009FC568 /* Speech.swift */,
 			);
 			path = "project3-group-26";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				E7A43B5820A9628E00DCFF50 /* ViewController.swift in Sources */,
 				E75F05AE20AE8E82009FC568 /* MapViewController.swift in Sources */,
 				E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */,
+				E75F05B020AE99B2009FC568 /* Speech.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
