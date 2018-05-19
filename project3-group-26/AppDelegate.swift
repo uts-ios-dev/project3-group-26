@@ -44,3 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// customize block
+let userDefaults = UserDefaults.standard
+
+extension AppDelegate {
+    
+    // do something
+    
+    
+    
+}
+
