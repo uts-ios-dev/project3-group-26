@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142515720B03579009DB0D1 /* SettingViewController.swift */; };
 		E75F05AE20AE8E82009FC568 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AD20AE8E82009FC568 /* MapViewController.swift */; };
 		E75F05B020AE99B2009FC568 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AF20AE99B2009FC568 /* Speech.swift */; };
 		E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2142515720B03579009DB0D1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E75F05AD20AE8E82009FC568 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E75F05AF20AE99B2009FC568 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		E7A43B5220A9628D00DCFF50 /* project3-group-26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project3-group-26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,13 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */,
-				E7A43B5720A9628E00DCFF50 /* ViewController.swift */,
-				E75F05AD20AE8E82009FC568 /* MapViewController.swift */,
 				E7A43B5920A9628E00DCFF50 /* Main.storyboard */,
 				E75F05AF20AE99B2009FC568 /* Speech.swift */,
 				E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */,
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
+				E7A43B5720A9628E00DCFF50 /* ViewController.swift */,
+				E75F05AD20AE8E82009FC568 /* MapViewController.swift */,
+				2142515720B03579009DB0D1 /* SettingViewController.swift */,
 			);
 			path = "project3-group-26";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */,
 				E7A43B5820A9628E00DCFF50 /* ViewController.swift in Sources */,
 				E75F05AE20AE8E82009FC568 /* MapViewController.swift in Sources */,
 				E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */,
@@ -442,6 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "project3-group-26/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "UTS-IOS.project3-group-26";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -456,6 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "project3-group-26/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "UTS-IOS.project3-group-26";
 				PRODUCT_NAME = "$(TARGET_NAME)";
