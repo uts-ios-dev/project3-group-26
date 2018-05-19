@@ -9,4 +9,11 @@
 import Foundation
 import AVFoundation
 
+let synth = AVSpeechSynthesizer()
 
+let text = "Hello world"
+var myUtterance = AVSpeechUtterance(string: text)
+//myUtterance.rate = 0.5
+//// change code could change language, cannot change gender,
+//myUtterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+//synth.speak(myUtterance)
