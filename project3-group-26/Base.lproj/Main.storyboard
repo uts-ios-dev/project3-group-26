@@ -49,7 +49,7 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="FVq-yq-qFe" kind="show" id="AMv-v7-g6Z"/>
+                                            <segue destination="FVq-yq-qFe" kind="presentation" identifier="GoRight" id="AMv-v7-g6Z"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,9 +90,6 @@
                                                 <state key="normal" title="SLOW">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="slowRateButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="pzw-1e-NuM"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fe-Jx-CLJ">
                                                 <rect key="frame" x="125" y="0.0" width="125" height="215.5"/>
@@ -101,9 +98,6 @@
                                                 <state key="normal" title="NORMAL">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="normalRateButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="4hg-NK-YeC"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWn-z9-4NJ">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="215.5"/>
@@ -112,9 +106,6 @@
                                                 <state key="normal" title="FAST">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="fastRateButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="SmG-OJ-ClR"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -128,9 +119,6 @@
                                                 <state key="normal" title="FEMALE">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="maleButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="tnA-8f-i6w"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGZ-ZI-gA0">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="216"/>
@@ -139,9 +127,6 @@
                                                 <state key="normal" title="MALE">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="femaleRateButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="JBH-X1-qvd"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -155,9 +140,6 @@
                                                 <state key="normal" title="OFF">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="offButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="Wbt-7c-U8J"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT2-m8-4Z7">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="215.5"/>
@@ -167,7 +149,7 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onRateButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="wh1-VR-AgQ"/>
+                                                    <action selector="onButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="hMt-Dh-eJW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -184,6 +166,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zqt-2V-dfb"/>
                     </view>
+                    <connections>
+                        <segue destination="iTd-GW-3G2" kind="presentation" identifier="GoLeft" modalTransitionStyle="flipHorizontal" id="GUM-Q7-xqN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iz9-v1-kCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -473,6 +458,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OIO-Qk-T3h"/>
                     </view>
+                    <connections>
+                        <segue destination="iTd-GW-3G2" kind="presentation" identifier="" id="mBN-lm-IvH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLz-Tj-FFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -511,4 +499,7 @@
     <resources>
         <image name="mapp" width="708" height="1104"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mBN-lm-IvH"/>
+    </inferredMetricsTieBreakers>
 </document>
