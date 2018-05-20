@@ -117,6 +117,9 @@
                         <viewLayoutGuide key="safeArea" id="zqt-2V-dfb"/>
                     </view>
                     <connections>
+                        <outlet property="speechGenderButton" destination="JfO-Cr-bt0" id="NyZ-kx-tWK"/>
+                        <outlet property="speechRateButton" destination="RXG-me-uYl" id="aby-xp-kRd"/>
+                        <outlet property="tutorialButton" destination="iT2-m8-4Z7" id="6GX-h3-Frd"/>
                         <segue destination="mlT-1N-aKo" kind="unwind" identifier="unwindSegueToVC1" unwindAction="unwindToVC1WithSegue:" id="fKS-5B-UDw"/>
                     </connections>
                 </viewController>
