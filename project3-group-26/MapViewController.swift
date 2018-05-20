@@ -13,6 +13,7 @@ import GoogleMaps
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
+import AVFoundation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -26,7 +27,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocation: CLLocation?
     var placesClient: GMSPlacesClient!
     var nearbyPlaces: [NearbyPlace] = []
-    
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: text)
+    // set speak rate and voice from segue
+    // myUtterance.rate = 0.5
+    // myUtterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+
     
     override func viewDidLoad() {
         // using google place key
