@@ -20,10 +20,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     // API KEYS
     let placeSearchKey = "AIzaSyCXjncpMkQAeoNQRGgDYjoWjLI5MOT7aoI"
+    
     // location manager to get location
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var placesClient: GMSPlacesClient!
+    var nearbyPlaces: [NearbyPlace] = []
     
     
     override func viewDidLoad() {
@@ -64,6 +66,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         // convert location to address
         // placemark contains the place location in CLPlacemark bject
+        convetToAddress(location: location)
+        
+        // using current location to retrive the nearby location via google place search
+        if currentLocation == nil {
+            return
+        }
+        let searchLocation: String = "\(currentLocation!.coordinate.latitude),\(currentLocation!.coordinate.longitude)"
+        print(searchLocation)
+        let searchParams: [String: String] = ["location": searchLocation,"radius": "50", "key": placeSearchKey]
+        
+        // get nearby places, save in array,
+        fetchLocationInfo(parameters: searchParams)
+    }
+    
+    func convetToAddress(location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
             if error != nil {
                 print("error")
@@ -76,32 +93,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 }
             }
         }
-        
-        // using current location to retrive the nearby location via google place search
-        if currentLocation == nil {
-            return
-        }
-        let searchLocation: String = "\(currentLocation!.coordinate.latitude),\(currentLocation!.coordinate.longitude)"
-        let searchParams: [String: String] = ["location": searchLocation,"radius": "50", "key": placeSearchKey]
-        fetchLocationInfo(parameters: searchParams)
     }
 
     func fetchLocationInfo(parameters:[String: String]) {
-       guard let url = URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch")
+       guard let url = URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json")
             else {
                 print("wrong url")
                 return
         }
-//        let parameters = ["location": "-33.8841070,151.2003266","radius": "50", "key": placeSearchKey]
+        // url request from google place search web, get json
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
             response in
             if response.result.isSuccess {
                 print("Success!")
-                let placeJSON: JSON = JSON(response.result.value!)
-                print(placeJSON)
-                let name = placeJSON["results"][0]["name"]
-                print(placeJSON["results"].count)
-                print(name)
+                guard let data = response.data else {
+                    print("data nil")
+                    return
+                }
+                do {
+                    let jsonResult = try JSONDecoder().decode(NearbyPlaceJson.self, from: data)
+//                    print("result array: \(jsonResult.results)")
+                    self.nearbyPlaces = jsonResult.results
+                    print(self.nearbyPlaces)
+                } catch {
+                    print("error2: \(error)")
+                }
             }
             else {
                 // networking has problemms
@@ -109,5 +125,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
 
 }
