@@ -121,10 +121,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
             else {
                 // networking has problemms
-                print("Error: \(response.result.error)")
+                print("Error: \(response.result.error!)")
             }
         }
     }
     
+    func searchPlace(placeID: String) {
+        let placeID = "ChIJH7WPyCeuEmsRaZs_uxf4eXU"
+        placesClient = GMSPlacesClient.shared()
+        placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place details for \(placeID)")
+                return
+            }
+            
+            // !!! place.coordinate.latitude / longtitude to get the location of the place if the user want to go there following the navigation  !!!!!!
+            print("Place name \(place.name)")
+            print("Place address \(place.formattedAddress!)")
+            print("Place placeID \(place.placeID)")
+            print("Place attributions \(place.attributions!)")
+        })
+    }
 
 }
