@@ -9,6 +9,14 @@
 import Foundation
 
 
-struct Place {
-    
+struct NearbyPlace: Decodable {
+    var name: String
+    var place_id: String
+    var vicinity: String
 }
+
+struct NearbyPlaceJson: Decodable {
+    let results: [NearbyPlace]
+    let status: String?
+}
+
