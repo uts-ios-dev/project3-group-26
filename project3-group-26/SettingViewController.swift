@@ -18,13 +18,19 @@ class SettingViewController: UIViewController {
         setting = SettingManager.Instance.setting
         
         rigesterRightSwipe()
-        registerRateButtonTap()
-        registerGenderButtonTap()
-        registerTutorialButtonTap()
+        registerButtonTap(button: speechRateButton, singleTapAct: .rateButtonST, doubleTapAct: .rateButtonDT)
+        registerButtonTap(button: speechGenderButton, singleTapAct: .genderButtonST, doubleTapAct: .genderButtonDT)
+        registerButtonTap(button: tutorialButton, singleTapAct: .tutorialButtonST, doubleTapAct: .tutorialButtonDT)
         
         // speech
-        //        let viewDescription = ""
-        
+        let viewDescription = """
+                              This page is setting page, you are going to change speech rate, voice gender
+                              and switch tutorial. The page is divided into 3 top-down items, which are
+                              speech rate, voice gender and tutorial switch respectively. You can single tap
+                              to access details of each items, double tap to change their value or right swpie
+                              to go back to home page.
+                              """
+        print(viewDescription)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,18 +75,18 @@ extension SettingViewController {
 
 extension SettingViewController {
     
-    func registerRateButtonTap() {
-        let singleTap =  UITapGestureRecognizer(target: self, action: .rateButtonST)
+    func registerButtonTap(button: UIButton, singleTapAct: Selector, doubleTapAct: Selector) {
+        let singleTap =  UITapGestureRecognizer(target: self, action: singleTapAct)
         singleTap.numberOfTapsRequired = 1
-        speechRateButton.addGestureRecognizer(singleTap)
+        button.addGestureRecognizer(singleTap)
         
-        let doubleTap = UITapGestureRecognizer(target: self, action: .rateButtonDT)
+        let doubleTap = UITapGestureRecognizer(target: self, action: doubleTapAct)
         doubleTap.numberOfTapsRequired = 2
-        speechRateButton.addGestureRecognizer(doubleTap)
+        button.addGestureRecognizer(doubleTap)
         
         singleTap.require(toFail: doubleTap)
-        //        singleTap.delaysTouchesBegan = true
-        //        doubleTap.delaysTouchesBegan = true
+        singleTap.delaysTouchesBegan = true
+        doubleTap.delaysTouchesBegan = true
     }
     
     @objc func handleRateButtonSingleTap(_ sender: UITapGestureRecognizer) {
@@ -99,20 +105,6 @@ extension SettingViewController {
         showButtonTitle()
     }
     
-    func registerGenderButtonTap() {
-        let singleTap =  UITapGestureRecognizer(target: self, action: .genderButtonST)
-        singleTap.numberOfTapsRequired = 1
-        speechGenderButton.addGestureRecognizer(singleTap)
-        
-        let doubleTap = UITapGestureRecognizer(target: self, action: .genderButtonDT)
-        doubleTap.numberOfTapsRequired = 2
-        speechGenderButton.addGestureRecognizer(doubleTap)
-        
-        singleTap.require(toFail: doubleTap)
-        //        singleTap.delaysTouchesBegan = true
-        //        doubleTap.delaysTouchesBegan = true
-    }
-    
     @objc func handleGenderButtonSingleTap(_ sender: UITapGestureRecognizer) {
         print("speak gender decription")
     }
@@ -125,20 +117,6 @@ extension SettingViewController {
             setting.gender = .male
         }
         showButtonTitle()
-    }
-    
-    func registerTutorialButtonTap() {
-        let singleTap =  UITapGestureRecognizer(target: self, action: .tutorialButtonST)
-        singleTap.numberOfTapsRequired = 1
-        tutorialButton.addGestureRecognizer(singleTap)
-        
-        let doubleTap = UITapGestureRecognizer(target: self, action: .tutorialButtonDT)
-        doubleTap.numberOfTapsRequired = 2
-        tutorialButton.addGestureRecognizer(doubleTap)
-        
-        singleTap.require(toFail: doubleTap)
-        //        singleTap.delaysTouchesBegan = true
-        //        doubleTap.delaysTouchesBegan = true
     }
     
     @objc func handleTutorialButtonSingleTap(_ sender: UITapGestureRecognizer) {
