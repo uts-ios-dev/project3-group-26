@@ -25,6 +25,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     // location manager to get location
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
+    var currentHeading: CLHeading!
     var placesClient: GMSPlacesClient!
     var nearbyPlaces: [NearbyPlace] = []
     let synth = AVSpeechSynthesizer()
@@ -50,6 +51,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // update the heading when user turn the orientation
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        currentHeading = newHeading
     }
     
     // when location update, call the function
@@ -171,7 +177,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let placeCoordinate = CLLocationCoordinate2DMake(place.geometry.location.lat, place.geometry.location.lng)
             print(place.name)
             print("get coord: \(placeCoordinate)")
-            let bearing = getBearing(currentCoord: currentLocationCoordinate, nearbyPlaceCoord: placeCoordinate)
+            let bearing = getBearing(heading: currentHeading, currentCoord: currentLocationCoordinate, nearbyPlaceCoord: placeCoordinate)
             print("bearing is: \(bearing)")
             
             switch bearing {
@@ -192,14 +198,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     // add heading: CLHeading,  test just set the heading different orienation
-    func getBearing(currentCoord: CLLocationCoordinate2D, nearbyPlaceCoord: CLLocationCoordinate2D) -> Double {
+    // ??!!! how to get heading when user click and stop there ??
+    func getBearing(heading: CLHeading, currentCoord: CLLocationCoordinate2D, nearbyPlaceCoord: CLLocationCoordinate2D) -> Double {
         let vector1: (Double, Double) = (currentCoord.latitude, currentCoord.longitude)
         let vector2: (Double, Double)  = (nearbyPlaceCoord.latitude, nearbyPlaceCoord.longitude)
         let y = vector2.0 - vector1.0
         let x = vector2.1 - vector1.1
         let delta = atan2(abs(x), abs(y)) * 180 / .pi
         print("delta: \(delta)")
-        let headingBearing: CLLocationDirection  = 0
+        let headingBearing: CLLocationDirection  = heading.trueHeading
         var northPlaceBearing: Double!
         
         if x > Double(0) && y < Double(0) {
