@@ -28,11 +28,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var currentHeading: CLHeading!
     var placesClient: GMSPlacesClient!
     var nearbyPlaces: [NearbyPlace] = []
-    let synth = AVSpeechSynthesizer()
-    var myUtterance = AVSpeechUtterance(string: text)
-    // set speak rate and voice from segue
-    // myUtterance.rate = 0.5
-    // myUtterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+    var frontPlaces: [NearbyPlace] = []
+    var rightPlaces: [NearbyPlace] = []
+    var backPlaces: [NearbyPlace] = []
+    var leftPlaces: [NearbyPlace] = []
+    
+//    let synth = AVSpeechSynthesizer()
+//    var myUtterance = AVSpeechUtterance(string: text)
+//     set speak rate and voice from segue
+//     myUtterance.rate = 0.5
+//     myUtterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
 
     
     override func viewDidLoad() {
@@ -87,7 +92,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         let searchLocation: String = "\(currentLocation!.coordinate.latitude),\(currentLocation!.coordinate.longitude)"
         print(searchLocation)
-        let searchParams: [String: String] = ["location": searchLocation,"radius": "50", "key": placeSearchKey]
+        let searchParams: [String: String] = ["location": searchLocation, "radius": "50", "key": placeSearchKey]
         
         // get nearby places, save in array,
         fetchLocationInfo(parameters: searchParams)
@@ -125,7 +130,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 }
                 do {
                     let jsonResult = try JSONDecoder().decode(NearbyPlaceJson.self, from: data)
-//                    print("result array: \(jsonResult.results)")
                     self.nearbyPlaces = jsonResult.results
                     print(self.nearbyPlaces)
                     
@@ -182,14 +186,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             switch bearing {
             case 0 ..< 45:
+                frontPlaces.append(place)
                 print("at front")
             case 45 ..< 135:
+                rightPlaces.append(place)
                 print("at right")
             case 135 ..< 225:
+                backPlaces.append(place)
                 print("at back")
             case 225 ..< 315:
+                leftPlaces.append(place)
                 print("at left")
             case 315 ... 360:
+                frontPlaces.append(place)
                 print("at front")
             default:
                 break
@@ -246,6 +255,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             return Double(360) - (headingBearing - northPlaceBearing!)
         }
+    }
+    
+    
+    // get the different nearby places at different courses
+    // return array of NearbyPlace (struct), each instance is a place, containing the name, place_id, vicinity, location
+    // I will find how to get more useful information to user add in the structs
+    func getFrontPlaces() -> [NearbyPlace] {
+        return frontPlaces
+    }
+    
+    func getRightPlaces() -> [NearbyPlace] {
+        return rightPlaces
+    }
+    
+    func getBackPlaces() -> [NearbyPlace] {
+        return backPlaces
+    }
+    
+    func getLeftPlaces() -> [NearbyPlace] {
+        return leftPlaces
     }
 
 }
