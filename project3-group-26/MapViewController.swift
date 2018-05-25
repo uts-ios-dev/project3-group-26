@@ -242,7 +242,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let vector1: (Double, Double) = (currentCoord.latitude, currentCoord.longitude)
         let vector2: (Double, Double)  = (nearbyPlaceCoord.latitude, nearbyPlaceCoord.longitude)
         let x = vector2.0 - vector1.0
-        let y = vector2.1 - vector2.1
+        let y = vector2.1 - vector1.1
         let delta = atan2(abs(x), abs(y))
         print("delta: \(delta)")
         let headingBearing: CLLocationDirection  = 90
