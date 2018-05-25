@@ -191,7 +191,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let placeCoordinate = CLLocationCoordinate2DMake(place.geometry.location.lat, place.geometry.location.lng)
             print(place.name)
             print("get coord: \(placeCoordinate)")
-            let bearing = getBearing(heading: currentHeading, currentCoord: currentLocationCoordinate, nearbyPlaceCoord: placeCoordinate)
+            let bearing = getBearing(heading: (currentLocation?.course)!, currentCoord: currentLocationCoordinate, nearbyPlaceCoord: placeCoordinate)
             print("bearing is: \(bearing)")
             
             switch bearing {
@@ -218,7 +218,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     // add heading: CLHeading,  test just set the heading different orienation
     // ??!!! how to get heading when user click and stop there ??
-    func getBearing(heading: CLHeading, currentCoord: CLLocationCoordinate2D, nearbyPlaceCoord: CLLocationCoordinate2D) -> Double {
+    func getBearing(heading: CLLocationDirection, currentCoord: CLLocationCoordinate2D, nearbyPlaceCoord: CLLocationCoordinate2D) -> Double {
         let vector1: (Double, Double) = (currentCoord.latitude, currentCoord.longitude)
         let vector2: (Double, Double)  = (nearbyPlaceCoord.latitude, nearbyPlaceCoord.longitude)
         let y = vector2.0 - vector1.0
@@ -227,7 +227,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("delta: \(delta)")
 //        may use course not the trueHeading
 //        let headingBearing: CLLocationDirection  = heading.trueHeading
-        let headingBearing: Double  = (currentLocation?.course)!
+//        let headingBearing: Double  = (currentLocation?.course)!
+        let headingBearing = heading
         var northPlaceBearing: Double!
         
         if x > Double(0) && y < Double(0) {
