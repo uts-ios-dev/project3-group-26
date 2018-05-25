@@ -49,8 +49,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         // the accuracy of the location, set it the best
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // set distance filter, decrease the frequence of the update
+        locationManager.distanceFilter = 10
         // start update loation, call the func locationManager
         locationManager.startUpdatingLocation()
+        // start update course
+        locationManager.startUpdatingHeading()
+    }
+    
+    // view disappear, stop update
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.locationManager.stopUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -215,7 +225,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let x = vector2.1 - vector1.1
         let delta = atan2(abs(x), abs(y)) * 180 / .pi
         print("delta: \(delta)")
-        let headingBearing: CLLocationDirection  = heading.trueHeading
+//        may use course not the trueHeading
+//        let headingBearing: CLLocationDirection  = heading.trueHeading
+        let headingBearing: Double  = (currentLocation?.course)!
         var northPlaceBearing: Double!
         
         if x > Double(0) && y < Double(0) {
