@@ -32,6 +32,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var rightPlaces: [NearbyPlace] = []
     var backPlaces: [NearbyPlace] = []
     var leftPlaces: [NearbyPlace] = []
+    var numUpdate = 0
     
 //    let synth = AVSpeechSynthesizer()
 //    var myUtterance = AVSpeechUtterance(string: text)
@@ -49,12 +50,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         // the accuracy of the location, set it the best
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // set distance filter, decrease the frequence of the update
+        // set distance and heading filter, decrease the frequence of the update
         locationManager.distanceFilter = 10
+        locationManager.headingFilter = 22.5
         // start update loation, call the func locationManager
         locationManager.startUpdatingLocation()
         // start update course
         locationManager.startUpdatingHeading()
+        
+        print("start????")
     }
     
     // view disappear, stop update
@@ -71,11 +75,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     // update the heading when user turn the orientation
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         currentHeading = newHeading
+        print("heading !!: \(currentHeading)")
     }
     
     // when location update, call the function
     // the location save in array locations
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("num of update: \(numUpdate)")
+        numUpdate += 1
         // the most recent location update is at the end of the array, and the accurancy is most best
         let location = locations[locations.count - 1]
         print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
