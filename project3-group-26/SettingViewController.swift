@@ -75,20 +75,6 @@ extension SettingViewController {
 
 extension SettingViewController {
     
-    func registerButtonTap(button: UIButton, singleTapAct: Selector, doubleTapAct: Selector) {
-        let singleTap =  UITapGestureRecognizer(target: self, action: singleTapAct)
-        singleTap.numberOfTapsRequired = 1
-        button.addGestureRecognizer(singleTap)
-        
-        let doubleTap = UITapGestureRecognizer(target: self, action: doubleTapAct)
-        doubleTap.numberOfTapsRequired = 2
-        button.addGestureRecognizer(doubleTap)
-        
-        singleTap.require(toFail: doubleTap)
-        singleTap.delaysTouchesBegan = true
-        doubleTap.delaysTouchesBegan = true
-    }
-    
     @objc func handleRateButtonSingleTap(_ sender: UITapGestureRecognizer) {
         print("speak rate decription")
     }
