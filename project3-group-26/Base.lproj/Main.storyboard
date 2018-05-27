@@ -37,6 +37,9 @@
                                         <state key="normal" title="START">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="b0f-Gr-Qfb" kind="presentation" id="pvt-f5-RKN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2i-Hi-95J">
                                         <rect key="frame" x="0.0" y="431.5" width="375" height="215.5"/>
