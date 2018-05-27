@@ -10,6 +10,9 @@ import UIKit
 
 class SpotViewController: UIViewController {
 
+    var attemptSpots: [NearbyPlace]!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

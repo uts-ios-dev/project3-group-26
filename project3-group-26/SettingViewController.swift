@@ -55,26 +55,6 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController {
     
-    func rigesterRightSwipe() {
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
-        rightSwipe.direction = .right
-        //        rightSwipe.numberOfTouchesRequired = 3
-        self.view.addGestureRecognizer(rightSwipe)
-    }
-    
-    @objc func swipeAction(swipe: UISwipeGestureRecognizer) {
-        switch swipe.direction {
-        case .right:
-            performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-        default:
-            break
-        }
-    }
-    
-}
-
-extension SettingViewController {
-    
     @objc func handleRateButtonSingleTap(_ sender: UITapGestureRecognizer) {
         print("speak rate decription")
     }
