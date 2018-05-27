@@ -13,6 +13,7 @@ struct NearbyPlace: Decodable {
     var name: String
     var place_id: String
     var vicinity: String
+    var geometry: Geometry
 }
 
 struct NearbyPlaceJson: Decodable {
@@ -20,3 +21,11 @@ struct NearbyPlaceJson: Decodable {
     let status: String?
 }
 
+struct Location: Decodable {
+    let lat: Double
+    let lng: Double
+}
+
+struct Geometry: Decodable {
+    let location: Location
+}

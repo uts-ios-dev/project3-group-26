@@ -50,7 +50,6 @@ import AVFoundation
 //    case female
 //}
 
-
 class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
 {
     var text : String!

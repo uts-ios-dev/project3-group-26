@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // customize block
 let userDefaults = UserDefaults.standard
+// access map info
+let mapControl = MapControl()
 
 extension AppDelegate {
     
