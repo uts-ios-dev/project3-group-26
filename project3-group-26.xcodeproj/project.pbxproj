@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2141729420B164F30050A7E1 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141729320B164F30050A7E1 /* SettingManager.swift */; };
+		214195BA20B2868F0041E6B4 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 214195B920B2868F0041E6B4 /* AppConfig.plist */; };
+		214195BC20B28F880041E6B4 /* PListFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214195BB20B28F880041E6B4 /* PListFile.swift */; };
+		214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214195BD20B290B70041E6B4 /* AppConfigManager.swift */; };
 		2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142515720B03579009DB0D1 /* SettingViewController.swift */; };
 		52ECEE5A27A1923253817277 /* Pods_project3_group_26UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DCFA354518FC5D63CE9FCB /* Pods_project3_group_26UITests.framework */; };
 		5D94ED7CE8A3436AF3133E6A /* Pods_project3_group_26.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F504AC2AA9E09D537879D6 /* Pods_project3_group_26.framework */; };
@@ -43,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		2141729320B164F30050A7E1 /* SettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
+		214195B920B2868F0041E6B4 /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
+		214195BB20B28F880041E6B4 /* PListFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListFile.swift; sourceTree = "<group>"; };
+		214195BD20B290B70041E6B4 /* AppConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigManager.swift; sourceTree = "<group>"; };
 		2142515720B03579009DB0D1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		53F504AC2AA9E09D537879D6 /* Pods_project3_group_26.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project3_group_26.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4B2547A7C92FC4D35B4DC8 /* Pods-project3-group-26UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project3-group-26UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-project3-group-26UITests/Pods-project3-group-26UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,12 +158,15 @@
 				E7A43B5720A9628E00DCFF50 /* ViewController.swift */,
 				E75F05AD20AE8E82009FC568 /* MapViewController.swift */,
 				2142515720B03579009DB0D1 /* SettingViewController.swift */,
+				2141729320B164F30050A7E1 /* SettingManager.swift */,
 				E7A43B5920A9628E00DCFF50 /* Main.storyboard */,
 				E75F05AF20AE99B2009FC568 /* Speech.swift */,
 				E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */,
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
-				2141729320B164F30050A7E1 /* SettingManager.swift */,
+				214195B920B2868F0041E6B4 /* AppConfig.plist */,
+				214195BB20B28F880041E6B4 /* PListFile.swift */,
+				214195BD20B290B70041E6B4 /* AppConfigManager.swift */,
 			);
 			path = "project3-group-26";
 			sourceTree = "<group>";
@@ -302,6 +311,7 @@
 			files = (
 				E7A43B6020A9628F00DCFF50 /* LaunchScreen.storyboard in Resources */,
 				E7A43B5D20A9628F00DCFF50 /* Assets.xcassets in Resources */,
+				214195BA20B2868F0041E6B4 /* AppConfig.plist in Resources */,
 				E7A43B5B20A9628E00DCFF50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,10 +438,12 @@
 			files = (
 				E7FF68DE20B13799002D58FD /* Nearby_Places.swift in Sources */,
 				2141729420B164F30050A7E1 /* SettingManager.swift in Sources */,
+				214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */,
 				2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */,
 				E7A43B5820A9628E00DCFF50 /* ViewController.swift in Sources */,
 				E75F05AE20AE8E82009FC568 /* MapViewController.swift in Sources */,
 				E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */,
+				214195BC20B28F880041E6B4 /* PListFile.swift in Sources */,
 				E75F05B020AE99B2009FC568 /* Speech.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,6 +652,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "project3-group-26Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "UTS-IOS.project3-group-26Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -657,6 +670,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "project3-group-26Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "UTS-IOS.project3-group-26Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -673,6 +687,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "project3-group-26UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "UTS-IOS.project3-group-26UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -689,6 +704,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "project3-group-26UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "UTS-IOS.project3-group-26UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
