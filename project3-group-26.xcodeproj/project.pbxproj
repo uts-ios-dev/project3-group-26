@@ -16,6 +16,7 @@
 		5D94ED7CE8A3436AF3133E6A /* Pods_project3_group_26.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F504AC2AA9E09D537879D6 /* Pods_project3_group_26.framework */; };
 		7EC75357C61502375CF97108 /* Pods_project3_group_26Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2A0B1DC2AF641D67780030 /* Pods_project3_group_26Tests.framework */; };
 		E741450A20BA8AEA009E57C8 /* MapUtilize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741450920BA8AEA009E57C8 /* MapUtilize.swift */; };
+		E741451420BBB950009E57C8 /* MapControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741451320BBB950009E57C8 /* MapControl.swift */; };
 		E75F05AE20AE8E82009FC568 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AD20AE8E82009FC568 /* MapViewController.swift */; };
 		E75F05B020AE99B2009FC568 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AF20AE99B2009FC568 /* Speech.swift */; };
 		E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 		C5BF193585ED111DD04FCA1D /* Pods-project3-group-26Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project3-group-26Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-project3-group-26Tests/Pods-project3-group-26Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA2A0B1DC2AF641D67780030 /* Pods_project3_group_26Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project3_group_26Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E741450920BA8AEA009E57C8 /* MapUtilize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUtilize.swift; sourceTree = "<group>"; };
+		E741451320BBB950009E57C8 /* MapControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControl.swift; sourceTree = "<group>"; };
 		E75F05AD20AE8E82009FC568 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E75F05AF20AE99B2009FC568 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		E7A43B5220A9628D00DCFF50 /* project3-group-26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project3-group-26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 				E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */,
 				E7A43B5720A9628E00DCFF50 /* ViewController.swift */,
 				E75F05AD20AE8E82009FC568 /* MapViewController.swift */,
+				E741451320BBB950009E57C8 /* MapControl.swift */,
 				2142515720B03579009DB0D1 /* SettingViewController.swift */,
 				2141729320B164F30050A7E1 /* SettingManager.swift */,
 				E7A43B5920A9628E00DCFF50 /* Main.storyboard */,
@@ -441,6 +444,7 @@
 			files = (
 				E7FF68DE20B13799002D58FD /* Nearby_Places.swift in Sources */,
 				2141729420B164F30050A7E1 /* SettingManager.swift in Sources */,
+				E741451420BBB950009E57C8 /* MapControl.swift in Sources */,
 				E741450A20BA8AEA009E57C8 /* MapUtilize.swift in Sources */,
 				214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */,
 				2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */,
