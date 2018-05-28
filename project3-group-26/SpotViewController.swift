@@ -8,31 +8,39 @@
 
 import UIKit
 
-class SpotViewController: UIViewController {
-
+class SpotViewController: UIViewController, SwipeBackDelegate {
+    
+    var swipeBackSegue: String = "unwindSegueToVC2_VC3"
+    
     var attemptSpots: [NearbyPlace]!
     
+    @IBOutlet weak var firstSpotButton: UIButton!
+    @IBOutlet weak var secondSpotButton: UIButton!
+    @IBOutlet weak var thirdSpotButton: UIButton!
+    
+    var spotButtons: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // init button action
+        rigesterRightSwipe()
+        
+        // init button array
+        spotButtons.append(firstSpotButton)
+        spotButtons.append(secondSpotButton)
+        spotButtons.append(thirdSpotButton)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // init button title
+        for (i, spot) in attemptSpots.enumerated() {
+            if i >= 3 { break }
+            spotButtons[i].setTitle(spot.name, for: .normal)
+        }
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

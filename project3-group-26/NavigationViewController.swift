@@ -12,7 +12,10 @@ enum Position {
     case front, back, left, right
 }
 
-class NavigationViewController: UIViewController {
+class NavigationViewController: UIViewController, SwipeBackDelegate {
+    
+    var swipeBackSegue: String = "unwindSegueToVC1_VC2"
+    
 
     var attemptSpots: [NearbyPlace]!  // param passed to SVVC
     var attemptSpotDict: [Position: [NearbyPlace]]!
@@ -28,30 +31,42 @@ class NavigationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // activate GPS func
-        mc.activate()
-        
         // init props
-        attemptSpots = []
-        attemptSpotDict = [.front: [], .right: [], .back: [], .left: []]
+        reset()
+        
+        // init swipe
+        rigesterRightSwipe()
         
         // init button action
-//        registerButtonTap(button: frontButton, singleTapAct: .frontButtonST, doubleTapAct: .frontButtonDT)
-//        registerButtonTap(button: rightButton, singleTapAct: .rightButtonST, doubleTapAct: .rightButtonDT)
-//        registerButtonTap(button: backButton, singleTapAct: .backButtonST, doubleTapAct: .backButtonDT)
-//        registerButtonTap(button: leftButton, singleTapAct: .leftButtonST, doubleTapAct: .leftButtonDT)
-//        registerButtonTap(button: midButton, singleTapAct: .midButtonST, doubleTapAct: .midButtonDT)
+        registerButtonTap(button: frontButton, singleTapAct: .frontButtonST, doubleTapAct: .frontButtonDT)
+        registerButtonTap(button: rightButton, singleTapAct: .rightButtonST, doubleTapAct: .rightButtonDT)
+        registerButtonTap(button: backButton, singleTapAct: .backButtonST, doubleTapAct: .backButtonDT)
+        registerButtonTap(button: leftButton, singleTapAct: .leftButtonST, doubleTapAct: .leftButtonDT)
+        registerButtonTap(button: midButton, singleTapAct: .midButtonST, doubleTapAct: .midButtonDT)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
+        if segue.identifier == "segueToVC3" {
             let spotVC = segue.destination as! SpotViewController
             spotVC.attemptSpots = attemptSpots
-            attemptSpots = nil  // reset
+            reset()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mc.activate()  // activate GPS func
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
         mc.inactivate()  // pause GPS func temperatly
     }
+    
+    func reset() {
+        attemptSpots = []
+        attemptSpotDict = [.front: [], .right: [], .back: [], .left: []]
+    }
+    
+    @IBAction func unwindToVC2(segue:UIStoryboardSegue) { }
 }
 
 
@@ -74,10 +89,16 @@ extension NavigationViewController {
         
         if refresh {
             setAttemptSpots(of: pos)
+            for spot in attemptSpots {
+                print(spot.name)
+            }
         }
         
         // *********
         // speak sth
+        // *********
+        
+        print("\(pos) button was single tapped!")
     }
     
     func handlePositionButtonDT(of pos: Position) {
@@ -90,20 +111,20 @@ extension NavigationViewController {
         if attemptSpots.count == 0 {
             handlePositionButtonST(of: pos, refresh: false)
         } else {
-            performSegue(withIdentifier: "", sender: self)
+            performSegue(withIdentifier: "segueToVC3", sender: self)
         }
     }
     
     func setAttemptSpots(of pos: Position) {
         switch pos {
-        case .back:
-            attemptSpotDict[pos] = mc.getBackPlaces()
         case .front:
-            attemptSpotDict[pos] = mc.getFrontPlaces()
-        case .left:
-            attemptSpotDict[pos] = mc.getLeftPlaces()
+            attemptSpotDict[.front] = mc.getFrontPlaces()
         case .right:
-            attemptSpotDict[pos] = mc.getRightPlaces()
+            attemptSpotDict[.right] = mc.getRightPlaces()
+        case .back:
+            attemptSpotDict[.back] = mc.getBackPlaces()
+        case .left:
+            attemptSpotDict[.left] = mc.getLeftPlaces()
         }
         attemptSpots = attemptSpotDict[pos]
     }

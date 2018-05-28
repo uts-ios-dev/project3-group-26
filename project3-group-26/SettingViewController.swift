@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, SwipeBackDelegate {
+    
+    
+    var swipeBackSegue: String = "unwindSegueToVC1_VC4"
     
     var setting: Setting!
     
@@ -17,20 +20,15 @@ class SettingViewController: UIViewController {
         
         setting = SettingManager.Instance.setting
         
-//        rigesterRightSwipe()
-//        registerButtonTap(button: speechRateButton, singleTapAct: .rateButtonST, doubleTapAct: .rateButtonDT)
-//        registerButtonTap(button: speechGenderButton, singleTapAct: .genderButtonST, doubleTapAct: .genderButtonDT)
-//        registerButtonTap(button: tutorialButton, singleTapAct: .tutorialButtonST, doubleTapAct: .tutorialButtonDT)
+        rigesterRightSwipe()
+        registerButtonTap(button: speechRateButton, singleTapAct: .rateButtonST, doubleTapAct: .rateButtonDT)
+        registerButtonTap(button: speechGenderButton, singleTapAct: .genderButtonST, doubleTapAct: .genderButtonDT)
+        registerButtonTap(button: tutorialButton, singleTapAct: .tutorialButtonST, doubleTapAct: .tutorialButtonDT)
         
-        // speech
-        let viewDescription = """
-                              This page is setting page, you are going to change speech rate, voice gender
-                              and switch tutorial. The page is divided into 3 top-down items, which are
-                              speech rate, voice gender and tutorial switch respectively. You can single tap
-                              to access details of each items, double tap to change their value or right swpie
-                              to go back to home page.
-                              """
-        print(viewDescription)
+        // *****************
+        // speak description
+        // *****************
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
