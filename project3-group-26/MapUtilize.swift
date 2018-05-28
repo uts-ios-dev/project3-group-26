@@ -14,7 +14,7 @@ import Alamofire
 import SwiftyJSON
 import AVFoundation
 
-class MapControl: NSObject, CLLocationManagerDelegate {
+class MapControl1: NSObject, CLLocationManagerDelegate {
     
     let placeSearchKey = "AIzaSyCXjncpMkQAeoNQRGgDYjoWjLI5MOT7aoI"
     
