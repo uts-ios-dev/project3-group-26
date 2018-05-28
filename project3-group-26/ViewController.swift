@@ -24,6 +24,11 @@ class ViewController: UIViewController {
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
 }
 
+
+fileprivate extension Selector {
+    static let rightSwipeAct = #selector(UIViewController.handleRightSwipe(_:))
+}
+
 // extension for all VC to use single/double tap
 extension UIViewController {
     
@@ -42,14 +47,14 @@ extension UIViewController {
     }
     
     func rigesterRightSwipe() {
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: .rightSwipeAct)
         rightSwipe.direction = .right
-        //        rightSwipe.numberOfTouchesRequired = 3
+        rightSwipe.numberOfTouchesRequired = 3
         self.view.addGestureRecognizer(rightSwipe)
     }
     
-    @objc func swipeAction(swipe: UISwipeGestureRecognizer) {
-        switch swipe.direction {
+    @objc func handleRightSwipe(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
         case .right:
             performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         default:
@@ -58,6 +63,5 @@ extension UIViewController {
     }
 }
 
-fileprivate extension Selector {
-    
-}
+
+
