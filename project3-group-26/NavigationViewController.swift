@@ -36,11 +36,11 @@ class NavigationViewController: UIViewController {
         attemptSpotDict = [.front: [], .right: [], .back: [], .left: []]
         
         // init button action
-        registerButtonTap(button: frontButton, singleTapAct: .frontButtonST, doubleTapAct: .frontButtonDT)
-        registerButtonTap(button: rightButton, singleTapAct: .rightButtonST, doubleTapAct: .rightButtonDT)
-        registerButtonTap(button: backButton, singleTapAct: .backButtonST, doubleTapAct: .backButtonDT)
-        registerButtonTap(button: leftButton, singleTapAct: .leftButtonST, doubleTapAct: .leftButtonDT)
-        registerButtonTap(button: midButton, singleTapAct: .midButtonST, doubleTapAct: .midButtonDT)
+//        registerButtonTap(button: frontButton, singleTapAct: .frontButtonST, doubleTapAct: .frontButtonDT)
+//        registerButtonTap(button: rightButton, singleTapAct: .rightButtonST, doubleTapAct: .rightButtonDT)
+//        registerButtonTap(button: backButton, singleTapAct: .backButtonST, doubleTapAct: .backButtonDT)
+//        registerButtonTap(button: leftButton, singleTapAct: .leftButtonST, doubleTapAct: .leftButtonDT)
+//        registerButtonTap(button: midButton, singleTapAct: .midButtonST, doubleTapAct: .midButtonDT)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

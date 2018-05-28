@@ -25,43 +25,43 @@ class ViewController: UIViewController {
 }
 
 
-fileprivate extension Selector {
-    static let rightSwipeAct = #selector(UIViewController.handleRightSwipe(_:))
-}
-
-// extension for all VC to use single/double tap
-extension UIViewController {
-    
-    func registerButtonTap(button: UIButton, singleTapAct: Selector, doubleTapAct: Selector) {
-        let singleTap =  UITapGestureRecognizer(target: self, action: singleTapAct)
-        singleTap.numberOfTapsRequired = 1
-        button.addGestureRecognizer(singleTap)
-        
-        let doubleTap = UITapGestureRecognizer(target: self, action: doubleTapAct)
-        doubleTap.numberOfTapsRequired = 2
-        button.addGestureRecognizer(doubleTap)
-        
-        singleTap.require(toFail: doubleTap)
-        singleTap.delaysTouchesBegan = true
-        doubleTap.delaysTouchesBegan = true
-    }
-    
-    func rigesterRightSwipe() {
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: .rightSwipeAct)
-        rightSwipe.direction = .right
-        rightSwipe.numberOfTouchesRequired = 3
-        self.view.addGestureRecognizer(rightSwipe)
-    }
-    
-    @objc func handleRightSwipe(_ sender: UISwipeGestureRecognizer) {
-        switch sender.direction {
-        case .right:
-            performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-        default:
-            break
-        }
-    }
-}
+//fileprivate extension Selector {
+//    static let rightSwipeAct = #selector(UIViewController.handleRightSwipe(_:))
+//}
+//
+//// extension for all VC to use single/double tap
+//extension UIViewController {
+//
+//    func registerButtonTap(button: UIButton, singleTapAct: Selector, doubleTapAct: Selector) {
+//        let singleTap =  UITapGestureRecognizer(target: self, action: singleTapAct)
+//        singleTap.numberOfTapsRequired = 1
+//        button.addGestureRecognizer(singleTap)
+//
+//        let doubleTap = UITapGestureRecognizer(target: self, action: doubleTapAct)
+//        doubleTap.numberOfTapsRequired = 2
+//        button.addGestureRecognizer(doubleTap)
+//
+//        singleTap.require(toFail: doubleTap)
+//        singleTap.delaysTouchesBegan = true
+//        doubleTap.delaysTouchesBegan = true
+//    }
+//
+//    func rigesterRightSwipe() {
+//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: .rightSwipeAct)
+//        rightSwipe.direction = .right
+//        rightSwipe.numberOfTouchesRequired = 3
+//        self.view.addGestureRecognizer(rightSwipe)
+//    }
+//
+//    @objc func handleRightSwipe(_ sender: UISwipeGestureRecognizer) {
+//        switch sender.direction {
+//        case .right:
+//            performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+//        default:
+//            break
+//        }
+//    }
+//}
 
 
 
