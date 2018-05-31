@@ -161,21 +161,21 @@
 			children = (
 				E7FF68DC20B13761002D58FD /* Model */,
 				E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */,
+				214195BD20B290B70041E6B4 /* AppConfigManager.swift */,
+				21388FC820BC0D4400AD84D7 /* SwipeBackDelegate.swift */,
+				2191B0B920BAABC6009BD440 /* SpotViewController.swift */,
 				E7A43B5720A9628E00DCFF50 /* ViewController.swift */,
+				2191B0B720BA9C24009BD440 /* NavigationViewController.swift */,
 				E741451320BBB950009E57C8 /* MapControl.swift */,
 				2142515720B03579009DB0D1 /* SettingViewController.swift */,
 				2141729320B164F30050A7E1 /* SettingManager.swift */,
-				E7A43B5920A9628E00DCFF50 /* Main.storyboard */,
 				E75F05AF20AE99B2009FC568 /* Speech.swift */,
+				E7A43B5920A9628E00DCFF50 /* Main.storyboard */,
 				E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */,
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
 				214195B920B2868F0041E6B4 /* AppConfig.plist */,
 				214195BB20B28F880041E6B4 /* PListFile.swift */,
-				214195BD20B290B70041E6B4 /* AppConfigManager.swift */,
-				2191B0B720BA9C24009BD440 /* NavigationViewController.swift */,
-				2191B0B920BAABC6009BD440 /* SpotViewController.swift */,
-				21388FC820BC0D4400AD84D7 /* SwipeBackDelegate.swift */,
 			);
 			path = "project3-group-26";
 			sourceTree = "<group>";

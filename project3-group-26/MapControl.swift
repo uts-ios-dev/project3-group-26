@@ -64,18 +64,19 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     }
     
     func getFrontPlaces() -> [NearbyPlace] {
-        //        let location1 = Location(lat: -33.883706400000001,lng: 151.20050509999999)
-        //        let geometry1 = Geometry(location: location1)
-        //        let place1 = NearbyPlace(name: "RobotAssist Team", place_id: "ChIJ2ZJWfyiuEmsRhu41187fet0", vicinity: "UTS Building 2, 38/1 Broadway", geometry: geometry1)
-        //        let location2 = Location(lat: -33.883808700000003, lng: 151.20022059999999)
-        //        let geometry2 = Geometry(location: location2)
-        //        let place2 = NearbyPlace(name: "University of Technology Sydney, Building 2", place_id: "ChIJOTvQRyauEmsRjGJ9PYbFjsQ", vicinity: "638 Jones Street, Ultimo", geometry: geometry2)
-        //        let place3 = NearbyPlace(name: "Australia-China Relations Institute, University of Technology Sydney", place_id: "ChIJnQucSCauEmsRkkmPkZjvUJg", vicinity: "Tower Building, 18/15 Broadway, Ultimo", geometry: Geometry(location: Location(lat: -33.883780899999998, lng: 151.2002904)))
-        //        var testFrontPlaces: [NearbyPlace] = []
-        //        testFrontPlaces.append(place1)
-        //        testFrontPlaces.append(place2)
-        //        testFrontPlaces.append(place3)
-        //        return testFrontPlaces
+        //  test data
+//        let location1 = Location(lat: -33.883706400000001,lng: 151.20050509999999)
+//        let geometry1 = Geometry(location: location1)
+//        let place1 = NearbyPlace(name: "RobotAssist Team", place_id: "ChIJ2ZJWfyiuEmsRhu41187fet0", vicinity: "UTS Building 2, 38/1 Broadway", geometry: geometry1)
+//        let location2 = Location(lat: -33.883808700000003, lng: 151.20022059999999)
+//        let geometry2 = Geometry(location: location2)
+//        let place2 = NearbyPlace(name: "University of Technology Sydney, Building 2", place_id: "ChIJOTvQRyauEmsRjGJ9PYbFjsQ", vicinity: "638 Jones Street, Ultimo", geometry: geometry2)
+//        let place3 = NearbyPlace(name: "Australia-China Relations Institute, University of Technology Sydney", place_id: "ChIJnQucSCauEmsRkkmPkZjvUJg", vicinity: "Tower Building, 18/15 Broadway, Ultimo", geometry: Geometry(location: Location(lat: -33.883780899999998, lng: 151.2002904)))
+//        var testFrontPlaces: [NearbyPlace] = []
+//        testFrontPlaces.append(place1)
+//        testFrontPlaces.append(place2)
+//        testFrontPlaces.append(place3)
+//        return testFrontPlaces
         return frontPlaces
     }
     
@@ -108,28 +109,13 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("num of update: \(numUpdate)")
         numUpdate += 1
+        
         // the most recent location update is at the end of the array, and the accurancy is most best
         let location = locations[locations.count - 1]
         print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
         currentLocation = location
         convetToAddress(location: currentLocation!)
         
-        
-        // The width and height of a map region.
-        // indicate the desired zoom level of the map, with smaller delta values corresponding to a higher zoom level
-        //        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.001, 0.001)
-        //        let myLocatin: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        //        let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocatin, span)
-        
-        // make map move with user
-        //        map.setRegion(region, animated: true)
-        //        self.map.showsUserLocation = true
-        
-        // convert location to address
-        // placemark contains the place location in CLPlacemark object
-        //        convetToAddress(location: location)
-        
-        // using current location to retrive the nearby location via google place search
         if currentLocation == nil {
             return
         }
@@ -140,7 +126,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         // get nearby places, save in array,
         fetchLocationInfo(parameters: searchParams)
         
-        //        locationManager.stopUpdatingLocation()
+//        locationManager.stopUpdatingLocation()
     }
     
     func convetToAddress(location: CLLocation) {
@@ -151,7 +137,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
                 // print the address: number, street, city, postcode
                 if let place = placemark?[(placemark?.count)! - 1] {
                     if let _ = place.subThoroughfare {
-                        let address = "\(place.subThoroughfare!), \(place.thoroughfare!), \(place.locality!), \(place.postalCode!)"
+                        let address = "You are at \(place.subThoroughfare!), \(place.thoroughfare!), \(place.locality!), \(place.postalCode!)"
                         print(address)
                         // could read!!!!!--> add speak
                         // check mode and flag, and read !!!!
@@ -199,6 +185,12 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         //        let currentLocationCoordinate = CLLocationCoordinate2DMake(-33.8841070, 151.2003266)          // for test
         guard let _ = currentLocation else { return }
         let currentLocationCoordinate = currentLocation!.coordinate
+        
+        var newFrontPlaces: [NearbyPlace] = []
+        var newRightPlaces: [NearbyPlace] = []
+        var newBackPlaces: [NearbyPlace] = []
+        var newLeftPlaces: [NearbyPlace] = []
+        
         for place in nearbyPlaces {
             let placeCoordinate = CLLocationCoordinate2DMake(place.geometry.location.lat, place.geometry.location.lng)
             //            print(place.name)
@@ -208,24 +200,24 @@ class MapControl: NSObject, CLLocationManagerDelegate {
             
             switch bearing {
             case 0 ..< 45:
-                frontPlaces.append(place)
-            //                print("at front")
+                newFrontPlaces.append(place)
             case 45 ..< 135:
-                rightPlaces.append(place)
-            //                print("at right")
+                newRightPlaces.append(place)
             case 135 ..< 225:
-                backPlaces.append(place)
-            //                print("at back")
+                newBackPlaces.append(place)
             case 225 ..< 315:
-                leftPlaces.append(place)
-            //                print("at left")
+                newLeftPlaces.append(place)
             case 315 ... 360:
-                frontPlaces.append(place)
-            //                print("at front")
+                newFrontPlaces.append(place)
             default:
                 break
             }
         }
+        
+        frontPlaces = newFrontPlaces
+        rightPlaces = newRightPlaces
+        backPlaces = newBackPlaces
+        leftPlaces = newLeftPlaces
     }
     
     func getBearing(heading: CLLocationDirection, currentCoord: CLLocationCoordinate2D, nearbyPlaceCoord: CLLocationCoordinate2D) -> Double {
