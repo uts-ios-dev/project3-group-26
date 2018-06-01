@@ -21,6 +21,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     // location manager to get location
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
+    var currentAddress: String!
     var currentHeading: CLHeading!
     var placesClient: GMSPlacesClient!
     var nearbyPlaces: [NearbyPlace] = []
@@ -30,6 +31,8 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     var leftPlaces: [NearbyPlace] = []
     var numUpdate = 0
     
+    let speak = TextToSpeech()
+    var canSpeak = true
     var autoSpeaking = true
     var enable = false
     
@@ -125,7 +128,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         
         // get nearby places, save in array,
         fetchLocationInfo(parameters: searchParams)
-        
+        sleep(2)
 //        locationManager.stopUpdatingLocation()
     }
     
@@ -137,10 +140,16 @@ class MapControl: NSObject, CLLocationManagerDelegate {
                 // print the address: number, street, city, postcode
                 if let place = placemark?[(placemark?.count)! - 1] {
                     if let _ = place.subThoroughfare {
-                        let address = "You are at \(place.subThoroughfare!), \(place.thoroughfare!), \(place.locality!), \(place.postalCode!)"
-                        print(address)
+                        self.currentAddress = "\(place.subThoroughfare!), \(place.thoroughfare!), \(place.locality!), \(place.postalCode!)"
+                        print("You are at \(self.currentAddress)")
                         // could read!!!!!--> add speak
                         // check mode and flag, and read !!!!
+                        if self.canSpeak {
+                            self.canSpeak = false
+                            self.speak.speakText(text: "You are at \(self.currentAddress)")
+                            self.canSpeak = true
+                        }
+                        
                     }
                 }
             }

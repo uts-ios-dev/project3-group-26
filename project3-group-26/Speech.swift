@@ -75,6 +75,8 @@ class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
             utterance.voice = AVSpeechSynthesisVoice(language: voice_language)
             utterance.rate = voice_rate
             utterance.volume = voice_volume
+            // set the time before handling the next queued utterance
+            utterance.postUtteranceDelay = 0.1
             speechSynthesizer.speak(utterance)
         }
     }
