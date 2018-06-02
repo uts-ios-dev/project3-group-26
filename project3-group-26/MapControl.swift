@@ -146,7 +146,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
                         // check mode and flag, and read !!!!
                         if self.canSpeak {
                             self.canSpeak = false
-                            self.speak.speakText(text: "You are at \(self.currentAddress)")
+                            self.speak.speakTextImmediately(text: "You are at \(self.currentAddress)")
                             self.canSpeak = true
                         }
                         
