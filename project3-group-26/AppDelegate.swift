@@ -46,11 +46,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // customize block
 let userDefaults = UserDefaults.standard
+
+//
+var appSetting = SettingManager.Instance.setting
+
 // access map info
 let mapControl = MapControl()
+
 // speech tool
 let speechUtil = TextToSpeech()
 
+// 
 
 extension AppDelegate {
     

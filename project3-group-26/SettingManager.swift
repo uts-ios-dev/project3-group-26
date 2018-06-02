@@ -24,6 +24,7 @@ class SettingManager {
     
     func save(_ setting: Setting) {
         self.setting = setting
+        appSetting = self.setting;
         
         userDefaults.set(setting.rate.rawValue, forKey: "setting_rate")
         userDefaults.set(setting.gender.rawValue, forKey: "setting_gender")

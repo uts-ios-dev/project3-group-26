@@ -8,10 +8,7 @@
 
 import UIKit
 
-class SettingViewController: UIViewController, SwipeBackDelegate {
-    
-    
-    var swipeBackSegue: String = "unwindSegueToVC1_VC4"
+class SettingViewController: UIViewController, SwipeDelegate {
     
     var setting: Setting!
     
@@ -20,7 +17,7 @@ class SettingViewController: UIViewController, SwipeBackDelegate {
         
         setting = SettingManager.Instance.setting
         
-        rigesterRightSwipe()
+        registerSwipe()
         registerButtonTap(button: speechRateButton, singleTapAct: .rateButtonST, doubleTapAct: .rateButtonDT)
         registerButtonTap(button: tutorialButton, singleTapAct: .tutorialButtonST, doubleTapAct: .tutorialButtonDT)
         
@@ -44,6 +41,16 @@ class SettingViewController: UIViewController, SwipeBackDelegate {
     func showButtonTitle() {
         speechRateButton.setTitle(String(describing: setting.rate).uppercased(), for: .normal)
         tutorialButton.setTitle(String(describing: setting.tutorial).uppercased(), for: .normal)
+    }
+    
+    
+    // comform protocals of SwipeDelegate
+    func getSwipeBackSegue() -> String {
+        return "unwindSegueToVC1_VC4"
+    }
+    
+    func getPageIntroInDetail() -> String {
+        return ""
     }
     
 }

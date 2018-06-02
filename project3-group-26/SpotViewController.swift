@@ -8,9 +8,8 @@
 
 import UIKit
 
-class SpotViewController: UIViewController, SwipeBackDelegate {
+class SpotViewController: UIViewController, SwipeDelegate {
     
-    var swipeBackSegue: String = "unwindSegueToVC2_VC3"
     
     var attemptSpots: [NearbyPlace]!
     
@@ -23,8 +22,8 @@ class SpotViewController: UIViewController, SwipeBackDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // init button action
-        rigesterRightSwipe()
+        // init gesture
+        registerSwipe()
         
         // init button array
         spotButtons.append(firstSpotButton)
@@ -43,4 +42,12 @@ class SpotViewController: UIViewController, SwipeBackDelegate {
         
     }
     
+    // conform protocals of SwipeDelegate
+    func getSwipeBackSegue() -> String {
+        return "unwindSegueToVC2_VC3"
+    }
+    
+    func getPageIntroInDetail() -> String {
+        return ""
+    }
 }

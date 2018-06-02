@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21388FC920BC0D4400AD84D7 /* SwipeBackDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21388FC820BC0D4400AD84D7 /* SwipeBackDelegate.swift */; };
+		21388FC920BC0D4400AD84D7 /* SwipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21388FC820BC0D4400AD84D7 /* SwipeDelegate.swift */; };
 		2141729420B164F30050A7E1 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141729320B164F30050A7E1 /* SettingManager.swift */; };
-		214195BA20B2868F0041E6B4 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 214195B920B2868F0041E6B4 /* AppConfig.plist */; };
-		214195BC20B28F880041E6B4 /* PListFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214195BB20B28F880041E6B4 /* PListFile.swift */; };
 		214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214195BD20B290B70041E6B4 /* AppConfigManager.swift */; };
 		2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142515720B03579009DB0D1 /* SettingViewController.swift */; };
 		2191B0B820BA9C24009BD440 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191B0B720BA9C24009BD440 /* NavigationViewController.swift */; };
@@ -22,7 +20,7 @@
 		E741451420BBB950009E57C8 /* MapControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741451320BBB950009E57C8 /* MapControl.swift */; };
 		E75F05B020AE99B2009FC568 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AF20AE99B2009FC568 /* Speech.swift */; };
 		E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */; };
-		E7A43B5820A9628E00DCFF50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5720A9628E00DCFF50 /* ViewController.swift */; };
+		E7A43B5820A9628E00DCFF50 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5720A9628E00DCFF50 /* HomeViewController.swift */; };
 		E7A43B5B20A9628E00DCFF50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A43B5920A9628E00DCFF50 /* Main.storyboard */; };
 		E7A43B5D20A9628F00DCFF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */; };
 		E7A43B6020A9628F00DCFF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */; };
@@ -50,10 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21388FC820BC0D4400AD84D7 /* SwipeBackDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackDelegate.swift; sourceTree = "<group>"; };
+		21388FC820BC0D4400AD84D7 /* SwipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDelegate.swift; sourceTree = "<group>"; };
 		2141729320B164F30050A7E1 /* SettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
-		214195B920B2868F0041E6B4 /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
-		214195BB20B28F880041E6B4 /* PListFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListFile.swift; sourceTree = "<group>"; };
 		214195BD20B290B70041E6B4 /* AppConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigManager.swift; sourceTree = "<group>"; };
 		2142515720B03579009DB0D1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2191B0B720BA9C24009BD440 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +68,7 @@
 		E75F05AF20AE99B2009FC568 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		E7A43B5220A9628D00DCFF50 /* project3-group-26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project3-group-26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7A43B5720A9628E00DCFF50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7A43B5720A9628E00DCFF50 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E7A43B5A20A9628E00DCFF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7A43B5F20A9628F00DCFF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -166,8 +162,8 @@
 				E7FF68DC20B13761002D58FD /* Model */,
 				E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */,
 				214195BD20B290B70041E6B4 /* AppConfigManager.swift */,
-				21388FC820BC0D4400AD84D7 /* SwipeBackDelegate.swift */,
-				E7A43B5720A9628E00DCFF50 /* ViewController.swift */,
+				21388FC820BC0D4400AD84D7 /* SwipeDelegate.swift */,
+				E7A43B5720A9628E00DCFF50 /* HomeViewController.swift */,
 				2142515720B03579009DB0D1 /* SettingViewController.swift */,
 				2191B0B720BA9C24009BD440 /* NavigationViewController.swift */,
 				2191B0B920BAABC6009BD440 /* SpotViewController.swift */,
@@ -179,8 +175,6 @@
 				E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */,
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
-				214195B920B2868F0041E6B4 /* AppConfig.plist */,
-				214195BB20B28F880041E6B4 /* PListFile.swift */,
 				21CF6AE420C24D1B00FB77E2 /* SpeechUtil.swift */,
 			);
 			path = "project3-group-26";
@@ -326,7 +320,6 @@
 			files = (
 				E7A43B6020A9628F00DCFF50 /* LaunchScreen.storyboard in Resources */,
 				E7A43B5D20A9628F00DCFF50 /* Assets.xcassets in Resources */,
-				214195BA20B2868F0041E6B4 /* AppConfig.plist in Resources */,
 				E7A43B5B20A9628E00DCFF50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,12 +451,11 @@
 				E7E5EDB520C11FF0009410CB /* speechUtilitise.swift in Sources */,
 				2191B0BA20BAABC6009BD440 /* SpotViewController.swift in Sources */,
 				214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */,
-				21388FC920BC0D4400AD84D7 /* SwipeBackDelegate.swift in Sources */,
+				21388FC920BC0D4400AD84D7 /* SwipeDelegate.swift in Sources */,
 				2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */,
 				21CF6AE520C24D1B00FB77E2 /* SpeechUtil.swift in Sources */,
-				E7A43B5820A9628E00DCFF50 /* ViewController.swift in Sources */,
+				E7A43B5820A9628E00DCFF50 /* HomeViewController.swift in Sources */,
 				E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */,
-				214195BC20B28F880041E6B4 /* PListFile.swift in Sources */,
 				E75F05B020AE99B2009FC568 /* Speech.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
