@@ -48,6 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 let userDefaults = UserDefaults.standard
 // access map info
 let mapControl = MapControl()
+// speech tool
+let speechUtil = TextToSpeech()
+
 
 extension AppDelegate {
     

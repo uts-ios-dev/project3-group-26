@@ -31,7 +31,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     var leftPlaces: [NearbyPlace] = []
     var numUpdate = 0
     
-    let speak = TextToSpeech()
+    let speak = speechUtil
     var canSpeak = true
     var autoSpeaking = true
     var enable = false
