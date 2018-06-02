@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="9nf-Yb-vxM">
             <objects>
-                <viewController id="iTd-GW-3G2" customClass="ViewController" customModule="project3_group_26" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iTd-GW-3G2" customClass="HomeViewController" customModule="project3_group_26" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nOg-Xk-aEY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="b0f-Gr-Qfb" kind="presentation" id="pvt-f5-RKN"/>
+                                            <segue destination="b0f-Gr-Qfb" kind="presentation" identifier="segueToVC2_VC1" id="pvt-f5-RKN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2i-Hi-95J">
@@ -41,7 +41,7 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="FVq-yq-qFe" kind="presentation" identifier="" id="AMv-v7-g6Z"/>
+                                            <segue destination="FVq-yq-qFe" kind="presentation" identifier="segueToVC4_VC1" id="AMv-v7-g6Z"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -56,6 +56,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZB8-1G-fPe"/>
                     </view>
+                    <connections>
+                        <outlet property="settingButton" destination="r2i-Hi-95J" id="Uhh-GQ-eie"/>
+                        <outlet property="startButton" destination="HUh-63-k76" id="jpV-lA-eEc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8t-HN-jwa" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,9 +91,6 @@
                                         <state key="normal" title="TUTORIAL">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="onButtonTapped:" destination="FVq-yq-qFe" eventType="touchUpInside" id="hMt-Dh-eJW"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

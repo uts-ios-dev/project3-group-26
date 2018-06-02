@@ -12,10 +12,7 @@ enum Position {
     case front, back, left, right
 }
 
-class NavigationViewController: UIViewController, SwipeBackDelegate {
-    
-    var swipeBackSegue: String = "unwindSegueToVC1_VC2"
-    
+class NavigationViewController: UIViewController, SwipeDelegate {
 
     var attemptSpots: [NearbyPlace]!  // param passed to SVVC
     var attemptSpotDict: [Position: [NearbyPlace]]!
@@ -34,8 +31,8 @@ class NavigationViewController: UIViewController, SwipeBackDelegate {
         // init props
         reset()
         
-        // init swipe
-        rigesterRightSwipe()
+        // init gesture
+        registerSwipe()
         
         // init button action
         registerButtonTap(button: frontButton, singleTapAct: .frontButtonST, doubleTapAct: .frontButtonDT)
@@ -64,6 +61,14 @@ class NavigationViewController: UIViewController, SwipeBackDelegate {
     func reset() {
         attemptSpots = []
         attemptSpotDict = [.front: [], .right: [], .back: [], .left: []]
+    }
+    
+    func getSwipeBackSegue() -> String {
+        return "unwindSegueToVC1_VC2"
+    }
+    
+    func getPageIntroInDetail() -> String {
+        return ""
     }
     
     @IBAction func unwindToVC2(segue:UIStoryboardSegue) { }
