@@ -71,7 +71,6 @@ class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
     {
         if !speechSynthesizer.isSpeaking
         {
-            print("i ma here")
             let utterance = AVSpeechUtterance(string: text)
             utterance.voice = AVSpeechSynthesisVoice(language: voice_language)
             utterance.rate = voice_rate
@@ -81,6 +80,13 @@ class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
             speechSynthesizer.speak(utterance)
         }
     }
+    
+    // Created by Linli Chen on 2/6/18.
+    func speakTextImmediately(text: String) {
+        stopSpeech()
+        speakText(text: text)
+    }
+    
     func pauseSpeech()
     {
         if speechSynthesizer.isSpeaking
