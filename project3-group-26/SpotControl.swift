@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class spotControl {
+class SpotControl {
     
     let url = URL(string: "https://en.wikipedia.org/w/api.php")
     var parameters: [String: String] = ["action": "query", "prop": "extracts", "format": "json", "exintro": "", "titles": ""]
