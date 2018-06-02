@@ -63,6 +63,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         enable = false
         if !enable {
             locationManager.stopUpdatingLocation()
+            speak.stopSpeech()
         }
     }
     
@@ -146,10 +147,9 @@ class MapControl: NSObject, CLLocationManagerDelegate {
                         // check mode and flag, and read !!!!
                         if self.canSpeak {
                             self.canSpeak = false
-                            self.speak.speakTextImmediately(text: "You are at \(self.currentAddress)")
+                            self.speak.speakText(text: "You are at \(self.currentAddress!)")
                             self.canSpeak = true
                         }
-                        
                     }
                 }
             }
