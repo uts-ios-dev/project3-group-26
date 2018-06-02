@@ -44,6 +44,7 @@ class SpotControl {
                 description = self.cleanString(string: description!)
                 print(description!)
                 // speak
+                speechUtil.speakTextImmediately(text: description)
             }
             else {
                 // networking has problems
