@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-=======
 		21388FC920BC0D4400AD84D7 /* SwipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21388FC820BC0D4400AD84D7 /* SwipeDelegate.swift */; };
->>>>>>> master
 		2141729420B164F30050A7E1 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141729320B164F30050A7E1 /* SettingManager.swift */; };
 		214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214195BD20B290B70041E6B4 /* AppConfigManager.swift */; };
 		2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142515720B03579009DB0D1 /* SettingViewController.swift */; };
@@ -52,10 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
-=======
 		21388FC820BC0D4400AD84D7 /* SwipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDelegate.swift; sourceTree = "<group>"; };
->>>>>>> master
 		2141729320B164F30050A7E1 /* SettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		214195BD20B290B70041E6B4 /* AppConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigManager.swift; sourceTree = "<group>"; };
 		2142515720B03579009DB0D1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -170,12 +164,8 @@
 				E7FF68DC20B13761002D58FD /* Model */,
 				E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */,
 				214195BD20B290B70041E6B4 /* AppConfigManager.swift */,
-<<<<<<< HEAD
-				E7A43B5720A9628E00DCFF50 /* ViewController.swift */,
-=======
 				21388FC820BC0D4400AD84D7 /* SwipeDelegate.swift */,
 				E7A43B5720A9628E00DCFF50 /* HomeViewController.swift */,
->>>>>>> master
 				2142515720B03579009DB0D1 /* SettingViewController.swift */,
 				2191B0B720BA9C24009BD440 /* NavigationViewController.swift */,
 				2191B0B920BAABC6009BD440 /* SpotViewController.swift */,
@@ -465,10 +455,7 @@
 				E7FB2B5E20C26AF5002681A0 /* SpotControl.swift in Sources */,
 				2191B0BA20BAABC6009BD440 /* SpotViewController.swift in Sources */,
 				214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */,
-<<<<<<< HEAD
-=======
 				21388FC920BC0D4400AD84D7 /* SwipeDelegate.swift in Sources */,
->>>>>>> master
 				2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */,
 				21CF6AE520C24D1B00FB77E2 /* SpeechUtil.swift in Sources */,
 				E7A43B5820A9628E00DCFF50 /* HomeViewController.swift in Sources */,
