@@ -36,15 +36,14 @@ class SpotControl {
                 print(data)
                 let jsonData = JSON(data)
                 print(jsonData)
-                for (key, value) in jsonData["query"]["pages"] {
-                    //                    print(value["extract"])
+                for (_, value) in jsonData["query"]["pages"] {
                     description = value["extract"].stringValue
                 }
                 
                 description = self.cleanString(string: description!)
                 print(description!)
                 // speak
-                speechUtil.speakTextImmediately(text: description)
+                speechUtil.speakTextImmediately(text: description!)
             }
             else {
                 // networking has problems

@@ -26,7 +26,6 @@
 		E7A43B6020A9628F00DCFF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */; };
 		E7A43B6B20A9628F00DCFF50 /* project3_group_26Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B6A20A9628F00DCFF50 /* project3_group_26Tests.swift */; };
 		E7A43B7620A9628F00DCFF50 /* project3_group_26UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B7520A9628F00DCFF50 /* project3_group_26UITests.swift */; };
-		E7E5EDB520C11FF0009410CB /* speechUtilitise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E5EDB420C11FF0009410CB /* speechUtilitise.swift */; };
 		E7FB2B5E20C26AF5002681A0 /* SpotControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FB2B5D20C26AF5002681A0 /* SpotControl.swift */; };
 		E7FF68DE20B13799002D58FD /* Nearby_Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FF68DD20B13799002D58FD /* Nearby_Places.swift */; };
 /* End PBXBuildFile section */
@@ -80,7 +79,6 @@
 		E7A43B7120A9628F00DCFF50 /* project3-group-26UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "project3-group-26UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A43B7520A9628F00DCFF50 /* project3_group_26UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project3_group_26UITests.swift; sourceTree = "<group>"; };
 		E7A43B7720A9628F00DCFF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7E5EDB420C11FF0009410CB /* speechUtilitise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechUtilitise.swift; sourceTree = "<group>"; };
 		E7FB2B5D20C26AF5002681A0 /* SpotControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotControl.swift; sourceTree = "<group>"; };
 		E7FF68DD20B13799002D58FD /* Nearby_Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nearby_Places.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,7 +171,6 @@
 				E7FB2B5D20C26AF5002681A0 /* SpotControl.swift */,
 				2141729320B164F30050A7E1 /* SettingManager.swift */,
 				E75F05AF20AE99B2009FC568 /* Speech.swift */,
-				E7E5EDB420C11FF0009410CB /* speechUtilitise.swift */,
 				E7A43B5920A9628E00DCFF50 /* Main.storyboard */,
 				E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */,
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
@@ -451,7 +448,6 @@
 				2191B0B820BA9C24009BD440 /* NavigationViewController.swift in Sources */,
 				2141729420B164F30050A7E1 /* SettingManager.swift in Sources */,
 				E741451420BBB950009E57C8 /* MapControl.swift in Sources */,
-				E7E5EDB520C11FF0009410CB /* speechUtilitise.swift in Sources */,
 				E7FB2B5E20C26AF5002681A0 /* SpotControl.swift in Sources */,
 				2191B0BA20BAABC6009BD440 /* SpotViewController.swift in Sources */,
 				214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */,
