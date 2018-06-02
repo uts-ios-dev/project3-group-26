@@ -23,7 +23,6 @@ class SpeechUtil {
         var tmp = template
         for text in texts {
             tmp = tmp.replaceFirstOccurrence(of: placeHolder, with: text)
-            print(tmp)
         }
         return tmp
     }
@@ -37,3 +36,16 @@ extension String {
     }
 }
 
+struct SpeechTemplate {
+    
+    static let PAGE_INFO = "This page is %@ page, you can %@."
+    static let PAGE_INFO_SIMPLE = "This page is %@ page."
+    
+    static let BUTTON_INFO = "The page is divided into %@, which are %@ button respectively. You can %@."
+    static let GESTURE_INFO = "Single tap to read items' description, double tap to get more details."
+    static let BACK_GESTURE_INFO = "Right swpie to back to last page."
+    static let REPEAT_GESTURE_INFO = "Down swipe to listen page introduction again."
+    static let SPOT_INFO = "This direction is %@ whose top %@ spots are %@."
+    
+    
+}
