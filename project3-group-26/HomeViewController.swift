@@ -36,11 +36,6 @@ class HomeViewController: UIViewController, SwipeDelegate {
         speechUtil.stopSpeech()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-    
-    
     // conform protocals of SwipeDelegate
     func getPageIntroInDetail() -> String {
         var text = SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO,

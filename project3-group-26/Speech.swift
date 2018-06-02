@@ -63,12 +63,14 @@ class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
     {
         text = ""
         voice_language = "en-US"
-        voice_rate = 0.5
-        voice_volume = 0.6
+        voice_rate = 0.6
+        voice_volume = 1
         voice_gender = Gender.female
     }
     func speakText(text : String)
     {
+        voice_rate = appSetting?.rate.rawValue
+        
         if !speechSynthesizer.isSpeaking
         {
             let utterance = AVSpeechUtterance(string: text)

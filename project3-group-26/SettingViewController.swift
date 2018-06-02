@@ -21,14 +21,21 @@ class SettingViewController: UIViewController, SwipeDelegate {
         registerButtonTap(button: speechRateButton, singleTapAct: .rateButtonST, doubleTapAct: .rateButtonDT)
         registerButtonTap(button: tutorialButton, singleTapAct: .tutorialButtonST, doubleTapAct: .tutorialButtonDT)
         
-        // *****************
-        // speak description
-        // *****************
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         showButtonTitle()
+        
+        // speech
+        if appSetting?.tutorial == .on {
+            speechUtil.speakText(text: getPageIntroInDetail())
+        } else {
+            speechUtil.speakText(text: SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO_SIMPLE, texts: "setting"))
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        speechUtil.stopSpeech()
     }
     
     @IBOutlet weak var speechRateButton: UIButton!
@@ -50,39 +57,82 @@ class SettingViewController: UIViewController, SwipeDelegate {
     }
     
     func getPageIntroInDetail() -> String {
-        return ""
+        var text = SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO,
+                                    texts: "setting", "change speaking speed and switch on and off to tutorial")
+        text += SpeechUtil.parse(template: SpeechTemplate.PAGE_BUTTON_INFO,
+                                 texts: "two top-down buttons", "speed and tutorial", "change speaking speed via speed or turn on and off tutorial via another")
+        text += SpeechTemplate.GESTURE_INFO + SpeechTemplate.BACK_GESTURE_INFO + SpeechTemplate.REPEAT_GESTURE_INFO
+        return text
     }
     
 }
 
 extension SettingViewController {
     
+    
+    func saveAndSpeak(_ text: String) {
+        SettingManager.Instance.save(setting)
+        speechUtil.speakTextImmediately(text: text)
+    }
+    
     @objc func handleRateButtonSingleTap(_ sender: UITapGestureRecognizer) {
-        print("speak rate decription")
+        var text = SpeechUtil.parse(template: SpeechTemplate.BUTTON_INFO, texts: "speed")
+        
+        switch setting.rate {
+        case .slow:
+            text += "Currently, speaking speed is slow. "
+            text += SpeechUtil.parse(template: SpeechTemplate.BUTTON_DT_INFO, texts: "normal speed" )
+        case .normal:
+            text += "Currently, speaking speed is normal. "
+            text += SpeechUtil.parse(template: SpeechTemplate.BUTTON_DT_INFO, texts: "fast speed" )
+        case .fast:
+            text += "Currently, speaking speed is fast. "
+            text += SpeechUtil.parse(template: SpeechTemplate.BUTTON_DT_INFO, texts: "slow speed" )
+        }
+        
+        speechUtil.speakTextImmediately(text: text)
     }
     
     @objc func handleRateButtonDoubleTap(_ sender: UITapGestureRecognizer) {
+        
         switch setting.rate {
         case .slow:
             setting.rate = .normal
+            saveAndSpeak("Speaking speed is normal now. ")
         case .normal:
             setting.rate = .fast
+            saveAndSpeak("Speaking speed is fast now. ")
         case .fast:
             setting.rate = .slow
+            saveAndSpeak("Speaking speed is slow now. ")
         }
         showButtonTitle()
     }
     
     @objc func handleTutorialButtonSingleTap(_ sender: UITapGestureRecognizer) {
-        print("speak tutorial decription")
+        var text = SpeechUtil.parse(template: SpeechTemplate.BUTTON_INFO, texts: "tutorial")
+        
+        switch setting.tutorial {
+        case .on:
+            text += "Currently, the tutorial mode is on. "
+            text += SpeechUtil.parse(template: SpeechTemplate.BUTTON_DT_INFO, texts: "turn it off" )
+        case .off:
+            text += "Currently, the tutorial mode is off. "
+            text += SpeechUtil.parse(template: SpeechTemplate.BUTTON_DT_INFO, texts: "turn it on" )
+        }
+        
+        speechUtil.speakTextImmediately(text: text)
     }
     
     @objc func handleTutorialButtonDoubleTap(_ sender: UITapGestureRecognizer) {
+        
         switch setting.tutorial {
         case .on:
             setting.tutorial = .off
+            saveAndSpeak("Tutorial is off now. ")
         case .off:
             setting.tutorial = .on
+            saveAndSpeak("tutorial is on now. ")
         }
         showButtonTitle()
     }
