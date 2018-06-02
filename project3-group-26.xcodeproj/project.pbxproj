@@ -15,6 +15,7 @@
 		2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142515720B03579009DB0D1 /* SettingViewController.swift */; };
 		2191B0B820BA9C24009BD440 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191B0B720BA9C24009BD440 /* NavigationViewController.swift */; };
 		2191B0BA20BAABC6009BD440 /* SpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191B0B920BAABC6009BD440 /* SpotViewController.swift */; };
+		21CF6AE520C24D1B00FB77E2 /* SpeechUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CF6AE420C24D1B00FB77E2 /* SpeechUtil.swift */; };
 		52ECEE5A27A1923253817277 /* Pods_project3_group_26UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DCFA354518FC5D63CE9FCB /* Pods_project3_group_26UITests.framework */; };
 		5D94ED7CE8A3436AF3133E6A /* Pods_project3_group_26.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F504AC2AA9E09D537879D6 /* Pods_project3_group_26.framework */; };
 		7EC75357C61502375CF97108 /* Pods_project3_group_26Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2A0B1DC2AF641D67780030 /* Pods_project3_group_26Tests.framework */; };
@@ -58,6 +59,7 @@
 		2142515720B03579009DB0D1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2191B0B720BA9C24009BD440 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		2191B0B920BAABC6009BD440 /* SpotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewController.swift; sourceTree = "<group>"; };
+		21CF6AE420C24D1B00FB77E2 /* SpeechUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechUtil.swift; sourceTree = "<group>"; };
 		53F504AC2AA9E09D537879D6 /* Pods_project3_group_26.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project3_group_26.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4B2547A7C92FC4D35B4DC8 /* Pods-project3-group-26UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project3-group-26UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-project3-group-26UITests/Pods-project3-group-26UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6B83E35ED5825D3B32A72DBB /* Pods-project3-group-26.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project3-group-26.debug.xcconfig"; path = "Pods/Target Support Files/Pods-project3-group-26/Pods-project3-group-26.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
 				214195B920B2868F0041E6B4 /* AppConfig.plist */,
 				214195BB20B28F880041E6B4 /* PListFile.swift */,
+				21CF6AE420C24D1B00FB77E2 /* SpeechUtil.swift */,
 			);
 			path = "project3-group-26";
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				214195BE20B290B70041E6B4 /* AppConfigManager.swift in Sources */,
 				21388FC920BC0D4400AD84D7 /* SwipeBackDelegate.swift in Sources */,
 				2142515820B03579009DB0D1 /* SettingViewController.swift in Sources */,
+				21CF6AE520C24D1B00FB77E2 /* SpeechUtil.swift in Sources */,
 				E7A43B5820A9628E00DCFF50 /* ViewController.swift in Sources */,
 				E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */,
 				214195BC20B28F880041E6B4 /* PListFile.swift in Sources */,

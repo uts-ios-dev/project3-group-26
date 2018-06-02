@@ -22,7 +22,6 @@ class SettingViewController: UIViewController, SwipeBackDelegate {
         
         rigesterRightSwipe()
         registerButtonTap(button: speechRateButton, singleTapAct: .rateButtonST, doubleTapAct: .rateButtonDT)
-        registerButtonTap(button: speechGenderButton, singleTapAct: .genderButtonST, doubleTapAct: .genderButtonDT)
         registerButtonTap(button: tutorialButton, singleTapAct: .tutorialButtonST, doubleTapAct: .tutorialButtonDT)
         
         // *****************
@@ -36,7 +35,6 @@ class SettingViewController: UIViewController, SwipeBackDelegate {
     }
     
     @IBOutlet weak var speechRateButton: UIButton!
-    @IBOutlet weak var speechGenderButton: UIButton!
     @IBOutlet weak var tutorialButton: UIButton!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,7 +43,6 @@ class SettingViewController: UIViewController, SwipeBackDelegate {
     
     func showButtonTitle() {
         speechRateButton.setTitle(String(describing: setting.rate).uppercased(), for: .normal)
-        speechGenderButton.setTitle(String(describing: setting.gender).uppercased(), for: .normal)
         tutorialButton.setTitle(String(describing: setting.tutorial).uppercased(), for: .normal)
     }
     
@@ -69,20 +66,6 @@ extension SettingViewController {
         showButtonTitle()
     }
     
-    @objc func handleGenderButtonSingleTap(_ sender: UITapGestureRecognizer) {
-        print("speak gender decription")
-    }
-    
-    @objc func handleGenderButtonDoubleTap(_ sender: UITapGestureRecognizer) {
-        switch setting.gender {
-        case .male:
-            setting.gender = .female
-        case .female:
-            setting.gender = .male
-        }
-        showButtonTitle()
-    }
-    
     @objc func handleTutorialButtonSingleTap(_ sender: UITapGestureRecognizer) {
         print("speak tutorial decription")
     }
@@ -101,8 +84,6 @@ extension SettingViewController {
 fileprivate extension Selector {
     static let rateButtonST = #selector(SettingViewController.handleRateButtonSingleTap(_:))
     static let rateButtonDT = #selector(SettingViewController.handleRateButtonDoubleTap(_:))
-    static let genderButtonST = #selector(SettingViewController.handleGenderButtonSingleTap(_:))
-    static let genderButtonDT = #selector(SettingViewController.handleGenderButtonDoubleTap(_:))
     static let tutorialButtonST = #selector(SettingViewController.handleTutorialButtonSingleTap(_:))
     static let tutorialButtonDT = #selector(SettingViewController.handleTutorialButtonDoubleTap(_:))
 }

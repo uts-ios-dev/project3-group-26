@@ -8,9 +8,10 @@
 
 import Foundation
 
-protocol SwipeBackDelegate {
+protocol SwipeDelegate {
     
-    var swipeBackSegue: String { get set }
+    func getSwipeBackSegue() -> String
     
-    
+    func getPageIntroInDetail() -> String
 }
+

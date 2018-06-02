@@ -57,14 +57,14 @@ class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
     var voice_rate : Float! // from 0.5 to 2, default 1
     var voice_volume : Float!
     var voice_gender : Gender!
-    let speechSynthesizer = AVSpeechSynthesizer()
+    var speechSynthesizer = AVSpeechSynthesizer()
     
     override init()
     {
         text = ""
         voice_language = "en-US"
-        voice_rate = 1.0
-        voice_volume = 1.0
+        voice_rate = 0.5
+        voice_volume = 0.6
         voice_gender = Gender.female
     }
     func speakText(text : String)
@@ -80,6 +80,13 @@ class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
             speechSynthesizer.speak(utterance)
         }
     }
+    
+    // Created by Linli Chen on 2/6/18.
+    func speakTextImmediately(text: String) {
+        stopSpeech()
+        speakText(text: text)
+    }
+    
     func pauseSpeech()
     {
         if speechSynthesizer.isSpeaking
@@ -92,6 +99,7 @@ class TextToSpeech : NSObject, AVSpeechSynthesizerDelegate
         if speechSynthesizer.isSpeaking || speechSynthesizer.isPaused
         {
             speechSynthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
+            speechSynthesizer = AVSpeechSynthesizer()
         }
     }
     func continueSpeach()
