@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, SwipeDelegate {
                                     texts: "home", "select to start navigation or set your perferences")
         text += SpeechUtil.parse(template: SpeechTemplate.PAGE_BUTTON_INFO,
                                  texts: "two top-down buttons", "start and setting", "enter navigation page via start or enter setting page via setting")
-        text += SpeechTemplate.GESTURE_INFO + SpeechTemplate.BACK_GESTURE_INFO + SpeechTemplate.REPEAT_GESTURE_INFO
+        text += SpeechTemplate.GESTURE_INFO + SpeechTemplate.GESTURE_BACK + SpeechTemplate.GESTURE_REPEAT
         return text
     }
     
