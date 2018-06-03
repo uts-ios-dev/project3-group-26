@@ -17,8 +17,9 @@ class SettingManager {
         let gender = Gender(rawValue: userDefaults.object(forKey: "setting_gender") as? String ?? Gender.female.rawValue)
         let tutorial = Switch(rawValue: userDefaults.object(forKey: "setting_tutorial") as? String ?? Switch.on.rawValue)
         let rate = SpeechRate(rawValue: userDefaults.object(forKey: "setting_rate") as? Float ?? SpeechRate.normal.rawValue)
+        let autoSpeaking = Switch(rawValue: userDefaults.object(forKey: "setting_autoSpeaking") as? String ?? Switch.on.rawValue)
         
-        setting = Setting(rate: rate!, gender: gender!, tutorial: tutorial!)
+        setting = Setting(rate: rate!, gender: gender!, tutorial: tutorial!, autoSpeaking: autoSpeaking!)
         
     }
     
@@ -29,6 +30,7 @@ class SettingManager {
         userDefaults.set(setting.rate.rawValue, forKey: "setting_rate")
         userDefaults.set(setting.gender.rawValue, forKey: "setting_gender")
         userDefaults.set(setting.tutorial.rawValue, forKey: "setting_tutorial")
+        userDefaults.set(setting.autoSpeaking.rawValue, forKey: "setting_autoSpeaking")
     }
     
 }
@@ -37,6 +39,7 @@ struct Setting {
     var rate: SpeechRate
     var gender: Gender
     var tutorial: Switch
+    var autoSpeaking: Switch
 }
 
 enum SpeechRate: Float {

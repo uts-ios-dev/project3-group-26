@@ -40,6 +40,9 @@ class NavigationViewController: UIViewController, SwipeDelegate {
         registerButtonTap(button: backButton, singleTapAct: .backButtonST, doubleTapAct: .backButtonDT)
         registerButtonTap(button: leftButton, singleTapAct: .leftButtonST, doubleTapAct: .leftButtonDT)
         registerButtonTap(button: midButton, singleTapAct: .midButtonST, doubleTapAct: .midButtonDT)
+        
+        // show button
+        showMidButton()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,7 +66,6 @@ class NavigationViewController: UIViewController, SwipeDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         mc.inactivate()  // pause GPS func temperatly
-//        speechUtil.stopSpeech()
     }
     
     func reset() {
@@ -113,7 +115,7 @@ extension NavigationViewController {
         }
         
         var spotText = ""
-        if attemptSpots != nil {  // spots loaded
+        if attemptSpots != nil && attemptSpots.count > 0 {  // spots loaded
             for (i, spot) in attemptSpots.enumerated() {
                 if i != 0 && i == attemptSpots.count - 2 {
                     spotText += spot.name + " and "
@@ -215,9 +217,34 @@ extension NavigationViewController {
     @objc func handleMidButtonDT(_ sender: UITapGestureRecognizer) {
         mc.toggleAutoSpeaking()
         
-        // say status
-        let status = mc.isAutoSpeaking() ? "on" : "off"
+        // save setting
+        var status = ""
+        if mc.isAutoSpeaking() {
+            appSetting?.autoSpeaking = .on
+            status = "on"
+        } else {
+            appSetting?.autoSpeaking = .off
+            status = "off"
+        }
+        SettingManager.Instance.save(appSetting!)
+        
+        showMidButton()
         speechUtil.speakTextImmediately(text: "Auto boardcast is now \(status). ")
+    }
+    
+    func showMidButton() {
+        // set auto speaking as setting
+        if appSetting?.autoSpeaking == .on {
+            if !mc.autoSpeaking {
+                mc.toggleAutoSpeaking()
+            }
+            midButton.setTitle("AUTO", for: .normal)
+        } else {
+            if mc.autoSpeaking {
+                mc.toggleAutoSpeaking()
+            }
+            midButton.setTitle("MANNUAL", for: .normal)
+        }
     }
 }
 

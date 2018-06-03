@@ -41,6 +41,7 @@ class SpotViewController: UIViewController, SwipeDelegate {
         for (i, spot) in attemptSpots.enumerated() {
             if i >= 3 { break }
             spotButtons[i].setTitle(spot.name, for: .normal)
+            spotButtons[i].isHidden = false
         }
         
         // speech
