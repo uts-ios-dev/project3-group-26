@@ -28,9 +28,9 @@ class SettingViewController: UIViewController, SwipeDelegate {
         
         // speech
         if appSetting?.tutorial == .on {
-            speechUtil.speakText(text: getPageIntroInDetail())
+            speechUtil.speakTextImmediately(text: getPageIntroInDetail())
         } else {
-            speechUtil.speakText(text: SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO_SIMPLE, texts: "setting"))
+            speechUtil.speakTextImmediately(text: SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO_SIMPLE, texts: "setting"))
         }
     }
     

@@ -25,11 +25,11 @@ class HomeViewController: UIViewController, SwipeDelegate {
     override func viewWillAppear(_ animated: Bool) {
         // speech
         if appSetting?.tutorial == .on {
-            speechUtil.speakText(text: getPageIntroInDetail())
+            speechUtil.speakTextImmediately(text: getPageIntroInDetail())
         } else {
-            speechUtil.speakText(text: SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO_SIMPLE, texts: "home"))
+            speechUtil.speakTextImmediately(text: SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO_SIMPLE, texts: "home"))
         }
-        
+        print("back to home page")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -99,8 +99,8 @@ extension UIViewController {
         button.addGestureRecognizer(doubleTap)
         
         singleTap.require(toFail: doubleTap)
-        singleTap.delaysTouchesBegan = true
-        doubleTap.delaysTouchesBegan = true
+//        singleTap.delaysTouchesBegan = true
+//        doubleTap.delaysTouchesBegan = true
     }
     
     // swipe
@@ -112,7 +112,7 @@ extension UIViewController {
     func registerDownSwipe() {
         let downSwipe = UISwipeGestureRecognizer(target: self, action: .downSwipeAct)
         downSwipe.direction = .down
-//        downSwipe.numberOfTouchesRequired = 2
+        downSwipe.numberOfTouchesRequired = 2
         self.view.addGestureRecognizer(downSwipe)
     }
     
@@ -120,13 +120,13 @@ extension UIViewController {
         guard let sd = self as? SwipeDelegate else {
             fatalError("Type 'ViewController' does not conform to protocol 'SwipeDelegate'")
         }
-        speechUtil.speakText(text: sd.getPageIntroInDetail());
+        speechUtil.speakTextImmediately(text: sd.getPageIntroInDetail());
     }
     
     func registerRightSwipe() {
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: .rightSwipeAct)
         rightSwipe.direction = .right
-//        rightSwipe.numberOfTouchesRequired = 2
+        rightSwipe.numberOfTouchesRequired = 2
         self.view.addGestureRecognizer(rightSwipe)
     }
 
