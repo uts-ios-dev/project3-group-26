@@ -123,9 +123,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapp" translatesAutoresizingMaskIntoConstraints="NO" id="LdK-g7-gyX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7JX-vQ-MoW">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
@@ -182,14 +179,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LdK-g7-gyX" firstAttribute="top" secondItem="OIO-Qk-T3h" secondAttribute="top" id="Dbf-Mw-WSa"/>
-                            <constraint firstItem="OIO-Qk-T3h" firstAttribute="trailing" secondItem="LdK-g7-gyX" secondAttribute="trailing" id="Hdh-Sw-Pz3"/>
-                            <constraint firstItem="OIO-Qk-T3h" firstAttribute="bottom" secondItem="LdK-g7-gyX" secondAttribute="bottom" id="Kg7-MU-vGf"/>
                             <constraint firstItem="OIO-Qk-T3h" firstAttribute="bottom" secondItem="7JX-vQ-MoW" secondAttribute="bottom" id="Q0J-WA-Dkk"/>
                             <constraint firstItem="7JX-vQ-MoW" firstAttribute="top" secondItem="OIO-Qk-T3h" secondAttribute="top" id="VJb-eP-SNk"/>
                             <constraint firstItem="7JX-vQ-MoW" firstAttribute="leading" secondItem="nQq-6f-2MJ" secondAttribute="leading" id="xp1-Ae-mnj"/>
                             <constraint firstAttribute="trailing" secondItem="7JX-vQ-MoW" secondAttribute="trailing" id="y0x-im-viB"/>
-                            <constraint firstItem="LdK-g7-gyX" firstAttribute="leading" secondItem="OIO-Qk-T3h" secondAttribute="leading" id="yrH-sE-8CF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OIO-Qk-T3h"/>
                     </view>
@@ -222,7 +215,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNf-aX-Zag">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
                                         <color key="backgroundColor" red="0.84084904193878174" green="0.98980444669723511" blue="0.8160516619682312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="TOP 1">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -230,7 +223,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0Y-Iu-Yf5">
                                         <rect key="frame" x="0.0" y="215.5" width="375" height="216"/>
                                         <color key="backgroundColor" red="0.95097166299819946" green="0.81204640865325928" blue="0.7843514084815979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="TOP 2">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -238,7 +231,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hW-9w-o8N">
                                         <rect key="frame" x="0.0" y="431.5" width="375" height="215.5"/>
                                         <color key="backgroundColor" red="0.81822353601455688" green="0.89306360483169556" blue="0.98808306455612183" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="TOP 3">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -256,9 +249,9 @@
                         <viewLayoutGuide key="safeArea" id="h59-dR-PyR"/>
                     </view>
                     <connections>
-                        <outlet property="firstSpotButton" destination="mNf-aX-Zag" id="Tof-aD-foI"/>
-                        <outlet property="secondSpotButton" destination="F0Y-Iu-Yf5" id="XLt-im-Fhf"/>
-                        <outlet property="thirdSpotButton" destination="9hW-9w-o8N" id="TzI-bl-lSj"/>
+                        <outlet property="firstButton" destination="mNf-aX-Zag" id="Tof-aD-foI"/>
+                        <outlet property="secondButton" destination="F0Y-Iu-Yf5" id="XLt-im-Fhf"/>
+                        <outlet property="thirdButton" destination="9hW-9w-o8N" id="TzI-bl-lSj"/>
                         <segue destination="BeQ-3O-DJF" kind="unwind" identifier="unwindSegueToVC2_VC3" unwindAction="unwindToVC2WithSegue:" id="S94-z9-cco"/>
                     </connections>
                 </viewController>
@@ -268,7 +261,4 @@
             <point key="canvasLocation" x="2121" y="142"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="mapp" width="708" height="1104"/>
-    </resources>
 </document>

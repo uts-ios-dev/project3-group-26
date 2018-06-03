@@ -131,7 +131,7 @@ extension NavigationViewController {
                                     texts: String(describing: pos),
                                     String(attemptSpots.count),
                                     spotText)
-        print(text)
+
         speechUtil.speakTextImmediately(text: text)
     }
     

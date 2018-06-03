@@ -55,8 +55,8 @@ let mapControl = MapControl()
 
 // speech tool
 let speechUtil = TextToSpeech()
+let spotControl = SpotControl()
 
-// 
 
 extension AppDelegate {
     
