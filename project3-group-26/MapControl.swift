@@ -68,19 +68,6 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     }
     
     func getFrontPlaces() -> [NearbyPlace] {
-        //  test data
-//        let location1 = Location(lat: -33.883706400000001,lng: 151.20050509999999)
-//        let geometry1 = Geometry(location: location1)
-//        let place1 = NearbyPlace(name: "RobotAssist Team", place_id: "ChIJ2ZJWfyiuEmsRhu41187fet0", vicinity: "UTS Building 2, 38/1 Broadway", geometry: geometry1)
-//        let location2 = Location(lat: -33.883808700000003, lng: 151.20022059999999)
-//        let geometry2 = Geometry(location: location2)
-//        let place2 = NearbyPlace(name: "University of Technology Sydney, Building 2", place_id: "ChIJOTvQRyauEmsRjGJ9PYbFjsQ", vicinity: "638 Jones Street, Ultimo", geometry: geometry2)
-//        let place3 = NearbyPlace(name: "Australia-China Relations Institute, University of Technology Sydney", place_id: "ChIJnQucSCauEmsRkkmPkZjvUJg", vicinity: "Tower Building, 18/15 Broadway, Ultimo", geometry: Geometry(location: Location(lat: -33.883780899999998, lng: 151.2002904)))
-//        var testFrontPlaces: [NearbyPlace] = []
-//        testFrontPlaces.append(place1)
-//        testFrontPlaces.append(place2)
-//        testFrontPlaces.append(place3)
-//        return testFrontPlaces
         return frontPlaces
     }
     
@@ -129,10 +116,11 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         
         // get nearby places, save in array,
         fetchLocationInfo(parameters: searchParams)
+        // stop a while
         sleep(2)
-//        locationManager.stopUpdatingLocation()
     }
     
+    // convert location coordinate to a address
     func convetToAddress(location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
             if error != nil {
@@ -156,13 +144,16 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    // cite: google places search document: https://developers.google.com/places/web-service/search
+    // cite: Alamofire github document: https://github.com/Alamofire/Alamofire
+    // cite: SwiftyJSON github documnet: https://github.com/SwiftyJSON/SwiftyJSON
     func fetchLocationInfo(parameters:[String: String]) {
         guard let url = URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json")
             else {
                 print("wrong url")
                 return
         }
-        // url request from google place search web, get json
+        // url request from google place search web, get json, the order of the result depends on the importance
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
             response in
             if response.result.isSuccess {
@@ -174,7 +165,6 @@ class MapControl: NSObject, CLLocationManagerDelegate {
                 do {
                     let jsonResult = try JSONDecoder().decode(NearbyPlaceJson.self, from: data)
                     self.nearbyPlaces = jsonResult.results
-                    //                    print(self.nearbyPlaces)
                     
                     self.decideCourse(nearbyPlaces: self.nearbyPlaces)
                 } catch {
@@ -191,7 +181,6 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     func decideCourse(nearbyPlaces: [NearbyPlace]) {
         print("decide Course")
         print(nearbyPlaces)
-        //        let currentLocationCoordinate = CLLocationCoordinate2DMake(-33.8841070, 151.2003266)          // for test
         guard let _ = currentLocation else { return }
         let currentLocationCoordinate = currentLocation!.coordinate
         
@@ -202,10 +191,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         
         for place in nearbyPlaces {
             let placeCoordinate = CLLocationCoordinate2DMake(place.geometry.location.lat, place.geometry.location.lng)
-            //            print(place.name)
-            //            print("get coord: \(placeCoordinate)")
             let bearing = getBearing(heading: (currentLocation?.course)!, currentCoord: currentLocationCoordinate, nearbyPlaceCoord: placeCoordinate)
-            //            print("bearing is: \(bearing)")
             
             switch bearing {
             case 0 ..< 45:
@@ -235,10 +221,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         let y = vector2.0 - vector1.0
         let x = vector2.1 - vector1.1
         let delta = atan2(abs(x), abs(y)) * 180 / .pi
-        //        print("delta: \(delta)")
-        //        may use course not the trueHeading
-        //        let headingBearing: CLLocationDirection  = heading.trueHeading
-        //        let headingBearing: Double  = (currentLocation?.course)!
+        
         let headingBearing = heading
         var northPlaceBearing: Double!
         

@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// cite: mediawike api search description of nearby places: https://www.mediawiki.org/wiki/API:Main_page
 class SpotControl {
     
     let url = URL(string: "https://en.wikipedia.org/w/api.php")
