@@ -215,18 +215,6 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         rightPlaces = newRightPlaces
         backPlaces = newBackPlaces
         leftPlaces = newLeftPlaces
-        
-        print("##########")
-        print("heading!!!!: \(currentHeading)")
-        print("##########")
-        print(frontPlaces)
-        print("##########")
-        print(rightPlaces)
-        print("##########")
-        print(backPlaces)
-        print("##########")
-        print(leftPlaces)
-        print("##########")
     }
     
     func getBearing(heading: CLLocationDirection, currentCoord: CLLocationCoordinate2D, nearbyPlaceCoord: CLLocationCoordinate2D) -> Double {
@@ -248,17 +236,6 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         } else if x < Double(0) && y < Double(0) {
             northPlaceBearing = Double(180) + delta
         }
-        
-        
-//        if x > Double(0) && y < Double(0) {
-//            northPlaceBearing = delta
-//        } else  if x > Double(0) && y > Double(0) {
-//            northPlaceBearing = Double(180) - delta
-//        } else if x < Double(0) && y > Double(0) {
-//            northPlaceBearing = Double(360) - Double(delta)
-//        } else if x < Double(0) && y < Double(0) {
-//            northPlaceBearing = Double(180) + delta
-//        }
         
         else if x == Double(0) && y > Double(0) {
             return 360 - headingBearing
