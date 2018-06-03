@@ -115,7 +115,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         // get nearby places, save in array,
         fetchLocationInfo(parameters: searchParams)
         // stop a while
-        sleep(2)
+//        sleep(2)
     }
     
     // convert location coordinate to a address
