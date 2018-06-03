@@ -46,8 +46,8 @@ struct SpeechTemplate {
     static let BUTTON_ST_INFO = "Single tap to %@. "
     static let BUTTON_DT_INFO = "Double tap to %@. "
     
-    static let GESTURE_SINGLE_TAP = "Double tap for more information. "
-    static let GESTURE_DOUBLE_TAP = "Signle tap to read content on the button. "
+    static let GESTURE_SINGLE_TAP = "Signle tap for more information. "
+    static let GESTURE_DOUBLE_TAP = "Double tap to read content on the button. "
     static let GESTURE_INFO = GESTURE_SINGLE_TAP + GESTURE_DOUBLE_TAP
     
     static let GESTURE_BACK = "Right swpie to back to last page. "
