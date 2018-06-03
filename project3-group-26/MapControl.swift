@@ -131,7 +131,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
                         // check mode and flag, and read !!!!
                         if self.canSpeak {
                             self.currentAddress = "\(place.subThoroughfare!), \(place.thoroughfare!), \(place.locality!), \(place.postalCode!)"
-                            print("You are at \(self.currentAddress)")
+                            print("You are at \(String(describing: self.currentAddress))")
                             self.canSpeak = false
                             self.speak.speakText(text: "You are at \(self.currentAddress!)")
                             self.canSpeak = true
