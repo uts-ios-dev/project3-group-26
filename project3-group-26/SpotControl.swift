@@ -41,10 +41,21 @@ class SpotControl {
                     description = value["extract"].stringValue
                 }
                 
-                description = self.cleanString(string: description!)
-                print(description!)
-                // speak
-                speechUtil.speakTextImmediately(text: description!)
+                guard var description = description else {
+                    speechUtil.speakTextImmediately(text: "do not have enough data")
+                    return
+                }
+                
+                // description do not have enough info
+                if self.checkEnoughData(string: description) == false {
+                    speechUtil.speakTextImmediately(text: "do not have enough data")
+                    return
+                }
+                
+                // get enough data
+                description = self.cleanString(string: description)
+                print(description)
+                speechUtil.speakTextImmediately(text: description)
             }
             else {
                 // networking has problems
@@ -59,6 +70,13 @@ class SpotControl {
             cleanedString = cleanedString.replacingOccurrences(of: reg, with: "", options: .regularExpression, range: nil)
         }
         return cleanedString
+    }
+    
+    func checkEnoughData(string: String) -> Bool {
+        if string.range(of: "may refer to") != nil {
+            return false
+        }
+        return true
     }
     
 }

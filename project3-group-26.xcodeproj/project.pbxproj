@@ -17,6 +17,7 @@
 		52ECEE5A27A1923253817277 /* Pods_project3_group_26UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DCFA354518FC5D63CE9FCB /* Pods_project3_group_26UITests.framework */; };
 		5D94ED7CE8A3436AF3133E6A /* Pods_project3_group_26.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F504AC2AA9E09D537879D6 /* Pods_project3_group_26.framework */; };
 		7EC75357C61502375CF97108 /* Pods_project3_group_26Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2A0B1DC2AF641D67780030 /* Pods_project3_group_26Tests.framework */; };
+		E7076FCB20C3B1710037DC41 /* SpotNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7076FCA20C3B1710037DC41 /* SpotNavigation.swift */; };
 		E741451420BBB950009E57C8 /* MapControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741451320BBB950009E57C8 /* MapControl.swift */; };
 		E75F05B020AE99B2009FC568 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F05AF20AE99B2009FC568 /* Speech.swift */; };
 		E7A43B5620A9628E00DCFF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A43B5520A9628E00DCFF50 /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 		B2DCFA354518FC5D63CE9FCB /* Pods_project3_group_26UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project3_group_26UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5BF193585ED111DD04FCA1D /* Pods-project3-group-26Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project3-group-26Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-project3-group-26Tests/Pods-project3-group-26Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA2A0B1DC2AF641D67780030 /* Pods_project3_group_26Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project3_group_26Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7076FCA20C3B1710037DC41 /* SpotNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotNavigation.swift; sourceTree = "<group>"; };
 		E741451320BBB950009E57C8 /* MapControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControl.swift; sourceTree = "<group>"; };
 		E75F05AF20AE99B2009FC568 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		E7A43B5220A9628D00DCFF50 /* project3-group-26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project3-group-26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
 				21CF6AE420C24D1B00FB77E2 /* SpeechUtil.swift */,
+				E7076FCA20C3B1710037DC41 /* SpotNavigation.swift */,
 			);
 			path = "project3-group-26";
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				E7FF68DE20B13799002D58FD /* Nearby_Places.swift in Sources */,
 				2191B0B820BA9C24009BD440 /* NavigationViewController.swift in Sources */,
 				2141729420B164F30050A7E1 /* SettingManager.swift in Sources */,
+				E7076FCB20C3B1710037DC41 /* SpotNavigation.swift in Sources */,
 				E741451420BBB950009E57C8 /* MapControl.swift in Sources */,
 				E7FB2B5E20C26AF5002681A0 /* SpotControl.swift in Sources */,
 				2191B0BA20BAABC6009BD440 /* SpotViewController.swift in Sources */,
