@@ -171,14 +171,14 @@
 				2191B0B920BAABC6009BD440 /* SpotViewController.swift */,
 				E741451320BBB950009E57C8 /* MapControl.swift */,
 				E7FB2B5D20C26AF5002681A0 /* SpotControl.swift */,
+				E7076FCA20C3B1710037DC41 /* SpotNavigation.swift */,
 				2141729320B164F30050A7E1 /* SettingManager.swift */,
 				E75F05AF20AE99B2009FC568 /* Speech.swift */,
+				21CF6AE420C24D1B00FB77E2 /* SpeechUtil.swift */,
 				E7A43B5920A9628E00DCFF50 /* Main.storyboard */,
 				E7A43B5C20A9628F00DCFF50 /* Assets.xcassets */,
 				E7A43B5E20A9628F00DCFF50 /* LaunchScreen.storyboard */,
 				E7A43B6120A9628F00DCFF50 /* Info.plist */,
-				21CF6AE420C24D1B00FB77E2 /* SpeechUtil.swift */,
-				E7076FCA20C3B1710037DC41 /* SpotNavigation.swift */,
 			);
 			path = "project3-group-26";
 			sourceTree = "<group>";

@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreLocation
-import GoogleMaps
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
@@ -118,8 +117,6 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         
         // get nearby places, save in array,
         fetchLocationInfo(parameters: searchParams)
-        // stop a while
-//        sleep(2)
     }
     
     // convert location coordinate to a address
@@ -131,8 +128,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
                 // print the address: number, street, city, postcode
                 if let place = placemark?[(placemark?.count)! - 1] {
                     if let _ = place.subThoroughfare {
-                        // could read!!!!!--> add speak
-                        // check mode and flag, and read !!!!
+                        // check mode and flag, and read
                         if self.canSpeak {
                             self.currentAddress = "\(place.subThoroughfare!), \(place.thoroughfare!), \(place.locality!), \(place.postalCode!)"
                             print("You are at \(String(describing: self.currentAddress))")

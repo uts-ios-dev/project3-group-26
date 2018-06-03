@@ -39,7 +39,6 @@ class SpotControl {
                 print(jsonData)
                 for (_, value) in jsonData["query"]["pages"] {
                     description = value["extract"].stringValue
-                    
                 }
                 
                 guard var description = description else {
