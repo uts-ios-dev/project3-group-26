@@ -22,7 +22,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var currentAddress: String?
-    var currentHeading: CLHeading!
+    var currentHeading: CLLocationDirection!
     var placesClient: GMSPlacesClient!
     var nearbyPlaces: [NearbyPlace] = []
     var frontPlaces: [NearbyPlace] = []
@@ -43,7 +43,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         //         set distance and heading filter, decrease the frequence of the update
         self.locationManager.distanceFilter = 10
-        self.locationManager.headingFilter = 22.5
+        self.locationManager.headingFilter = 45
         locationManager.requestWhenInUseAuthorization()
         //        self.locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -93,6 +93,10 @@ class MapControl: NSObject, CLLocationManagerDelegate {
     
     func getCurrentLocation() -> String? {
         return currentAddress
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        currentHeading = newHeading.trueHeading
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -189,7 +193,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         
         for place in nearbyPlaces {
             let placeCoordinate = CLLocationCoordinate2DMake(place.geometry.location.lat, place.geometry.location.lng)
-            let bearing = getBearing(heading: (currentLocation?.course)!, currentCoord: currentLocationCoordinate, nearbyPlaceCoord: placeCoordinate)
+            let bearing = getBearing(heading: currentHeading, currentCoord: currentLocationCoordinate, nearbyPlaceCoord: placeCoordinate)
             
             switch bearing {
             case 0 ..< 45:
@@ -211,6 +215,18 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         rightPlaces = newRightPlaces
         backPlaces = newBackPlaces
         leftPlaces = newLeftPlaces
+        
+        print("##########")
+        print("heading!!!!: \(currentHeading)")
+        print("##########")
+        print(frontPlaces)
+        print("##########")
+        print(rightPlaces)
+        print("##########")
+        print(backPlaces)
+        print("##########")
+        print(leftPlaces)
+        print("##########")
     }
     
     func getBearing(heading: CLLocationDirection, currentCoord: CLLocationCoordinate2D, nearbyPlaceCoord: CLLocationCoordinate2D) -> Double {
@@ -223,16 +239,27 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         let headingBearing = heading
         var northPlaceBearing: Double!
         
-        if x > Double(0) && y < Double(0) {
+        if x > Double(0) && y > Double(0) {
             northPlaceBearing = delta
-        } else  if x > Double(0) && y > Double(0) {
+        } else  if x > Double(0) && y < Double(0) {
             northPlaceBearing = Double(180) - delta
         } else if x < Double(0) && y > Double(0) {
             northPlaceBearing = Double(360) - Double(delta)
         } else if x < Double(0) && y < Double(0) {
             northPlaceBearing = Double(180) + delta
         }
-            
+        
+        
+//        if x > Double(0) && y < Double(0) {
+//            northPlaceBearing = delta
+//        } else  if x > Double(0) && y > Double(0) {
+//            northPlaceBearing = Double(180) - delta
+//        } else if x < Double(0) && y > Double(0) {
+//            northPlaceBearing = Double(360) - Double(delta)
+//        } else if x < Double(0) && y < Double(0) {
+//            northPlaceBearing = Double(180) + delta
+//        }
+        
         else if x == Double(0) && y > Double(0) {
             return 360 - headingBearing
         } else if x == Double(0) && y < Double(0) {
