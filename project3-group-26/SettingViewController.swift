@@ -61,7 +61,7 @@ class SettingViewController: UIViewController, SwipeDelegate {
                                     texts: "setting", "change speaking speed and switch on and off to tutorial")
         text += SpeechUtil.parse(template: SpeechTemplate.PAGE_BUTTON_INFO,
                                  texts: "two top-down buttons", "speed and tutorial", "change speaking speed via speed or turn on and off tutorial via another")
-        text += SpeechTemplate.GESTURE_INFO + SpeechTemplate.BACK_GESTURE_INFO + SpeechTemplate.REPEAT_GESTURE_INFO
+        text += SpeechTemplate.GESTURE_INFO + SpeechTemplate.GESTURE_BACK + SpeechTemplate.GESTURE_REPEAT
         return text
     }
     

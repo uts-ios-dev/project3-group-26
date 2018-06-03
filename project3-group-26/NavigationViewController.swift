@@ -52,6 +52,13 @@ class NavigationViewController: UIViewController, SwipeDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         mc.activate()  // activate GPS func
+        
+        // speech
+        if appSetting?.tutorial == .on {
+            speechUtil.speakText(text: getPageIntroInDetail())
+        } else {
+            speechUtil.speakText(text: SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO_SIMPLE, texts: "navigation"))
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -68,7 +75,12 @@ class NavigationViewController: UIViewController, SwipeDelegate {
     }
     
     func getPageIntroInDetail() -> String {
-        return ""
+        var text = SpeechUtil.parse(template: SpeechTemplate.PAGE_INFO,
+                                    texts: "navigation", "clarify where you are currently, and access hot spots in four directions")
+        text += SpeechUtil.parse(template: SpeechTemplate.PAGE_BUTTON_INFO,
+                                 texts: "5 evenly separated buttons", "front, back, left, right and center", "tapped them on the corresponding area on the screen. Please be noted that center is surrounded by four direction and is used to toggle auto boardcast current position, whereas the other four are used to access hot spots information briefly")
+        text += SpeechTemplate.GESTURE_INFO + SpeechTemplate.GESTURE_BACK + SpeechTemplate.GESTURE_REPEAT
+        return text
     }
     
     @IBAction func unwindToVC2(segue:UIStoryboardSegue) { }
@@ -99,11 +111,27 @@ extension NavigationViewController {
             }
         }
         
-        // *********
-        // speak sth
-        // *********
+        var spotText = ""
+        if attemptSpots != nil {  // spots loaded
+            for (i, spot) in attemptSpots.enumerated() {
+                if i != 0 && i == attemptSpots.count - 2 {
+                    spotText += spot.name + " and "
+                } else {
+                    spotText += spot.name + ", "
+                }
+            }
+            
+            // remove last ", "
+            let endIndex = spotText.index(spotText.endIndex, offsetBy: -2)
+            spotText = String(spotText[..<endIndex])
+        }
         
-        print("\(pos) button was single tapped!")
+        let text = SpeechUtil.parse(template: SpeechTemplate.SPOT_INFO,
+                                    texts: String(describing: pos),
+                                    String(attemptSpots.count),
+                                    spotText)
+        print(text)
+        speechUtil.speakTextImmediately(text: text)
     }
     
     func handlePositionButtonDT(of pos: Position) {
@@ -174,11 +202,10 @@ extension NavigationViewController {
         
         // but now changed to currect location introduction tmperately
         if mc.isAutoSpeaking() {
-            
+            speechUtil.speakTextImmediately(text: "Auto boardcast is now on. " + SpeechUtil.parse(template: SpeechTemplate.GESTURE_DOUBLE_TAP, texts: "turn it off"))
         } else {
             if let curLoc = mc.getCurrentLocation() {
-                // **************
-                // speak out loud
+                speechUtil.speakTextImmediately(text: "You are at \(curLoc)")
             }
         }
     }
@@ -186,6 +213,10 @@ extension NavigationViewController {
     // switch auto-speaking on/off
     @objc func handleMidButtonDT(_ sender: UITapGestureRecognizer) {
         mc.toggleAutoSpeaking()
+        
+        // say status
+        let status = mc.isAutoSpeaking() ? "on" : "off"
+        speechUtil.speakTextImmediately(text: "Auto boardcast is now \(status). ")
     }
 }
 

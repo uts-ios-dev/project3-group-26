@@ -43,12 +43,16 @@ struct SpeechTemplate {
     static let PAGE_BUTTON_INFO = "The page is divided into %@, which are %@ button respectively. You can %@. "
     
     static let BUTTON_INFO = "This is %@ button."
-    static let BUTTON_ST_INFO = "Single tap it to %@. "
-    static let BUTTON_DT_INFO = "Double tap it to %@. "
+    static let BUTTON_ST_INFO = "Single tap to %@. "
+    static let BUTTON_DT_INFO = "Double tap to %@. "
     
-    static let GESTURE_INFO = "Single tap to read items' description, double tap to get more details. "
-    static let BACK_GESTURE_INFO = "Right swpie to back to last page. "
-    static let REPEAT_GESTURE_INFO = "Down swipe to listen page introduction again. "
+    static let GESTURE_SINGLE_TAP = "Double tap for more information. "
+    static let GESTURE_DOUBLE_TAP = "Signle tap to read content on the button. "
+    static let GESTURE_INFO = GESTURE_DOUBLE_TAP + GESTURE_DOUBLE_TAP
+    
+    static let GESTURE_BACK = "Right swpie to back to last page. "
+    static let GESTURE_REPEAT = "Down swipe to listen page introduction again. "
+    
     static let SPOT_INFO = "This direction is %@ whose top %@ spots are %@. "
     
     
