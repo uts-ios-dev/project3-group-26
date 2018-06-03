@@ -39,16 +39,17 @@ class SpotControl {
                 print(jsonData)
                 for (_, value) in jsonData["query"]["pages"] {
                     description = value["extract"].stringValue
+                    
                 }
                 
                 guard var description = description else {
-                    speechUtil.speakTextImmediately(text: "do not have enough data")
+                    speechUtil.speakTextImmediately(text: "sorry, do not have enough data")
                     return
                 }
                 
                 // description do not have enough info
                 if self.checkEnoughData(string: description) == false {
-                    speechUtil.speakTextImmediately(text: "do not have enough data")
+                    speechUtil.speakTextImmediately(text: "sorry, do not have enough data")
                     return
                 }
                 
@@ -74,6 +75,9 @@ class SpotControl {
     
     func checkEnoughData(string: String) -> Bool {
         if string.range(of: "may refer to") != nil {
+            return false
+        }
+        if string == "" {
             return false
         }
         return true
