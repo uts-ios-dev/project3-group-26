@@ -1,6 +1,6 @@
 # project3-group-26
 project3-group-26 created by GitHub Classroom
-
+recap: when open the workplace, open "project3-group-26.xcworkspace"
 ## Tutorial - 07/05/2018
 1. Fromed a group (no.26) - Linl, Andy & Clark
 2. Decided project idea
