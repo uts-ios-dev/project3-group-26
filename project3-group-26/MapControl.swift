@@ -13,6 +13,10 @@ import Alamofire
 import SwiftyJSON
 import AVFoundation
 
+// cite: google places search document: https://developers.google.com/places/web-service/search
+// cite: Alamofire github document: https://github.com/Alamofire/Alamofire
+// cite: SwiftyJSON github documnet: https://github.com/SwiftyJSON/SwiftyJSON
+
 class MapControl: NSObject, CLLocationManagerDelegate {
     
     let placeSearchKey = "AIzaSyCXjncpMkQAeoNQRGgDYjoWjLI5MOT7aoI"
@@ -142,9 +146,7 @@ class MapControl: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    // cite: google places search document: https://developers.google.com/places/web-service/search
-    // cite: Alamofire github document: https://github.com/Alamofire/Alamofire
-    // cite: SwiftyJSON github documnet: https://github.com/SwiftyJSON/SwiftyJSON
+    
     func fetchLocationInfo(parameters:[String: String]) {
         guard let url = URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json")
             else {

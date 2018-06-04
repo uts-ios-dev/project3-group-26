@@ -58,11 +58,3 @@ let speechUtil = TextToSpeech()
 let spotControl = SpotControl()
 
 
-extension AppDelegate {
-    
-    // do something
-    
-    
-    
-}
-

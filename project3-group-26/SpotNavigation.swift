@@ -13,14 +13,9 @@ import CoreLocation
 import CoreLocation
 import AVFoundation
 
+// turn by turn navigation
 class Navigation {
-    //    let startLocation: CLLocationCoordinate2D
-    //    let destinationLocation: CLLocationCoordinate2D
-    //
-    //    init(startCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
-    //        self.startLocation = startCoordinate
-    //        self.destinationLocation = destinationCoordinate
-    //    }
+    
     var locationManager = CLLocationManager()
     var steps = [MKRouteStep]()
     var stepCounter = 0
@@ -52,7 +47,7 @@ class Navigation {
                 print("get primary route error")
                 return
             }
-            self.locationManager.monitoredRegions.forEach({ self.locationManager.stopMonitoring(for: $0) })
+        self.locationManager.monitoredRegions.forEach({ self.locationManager.stopMonitoring(for: $0) })
             
             self.steps = primaryRoute.steps
             for i in 0 ..< primaryRoute.steps.count {
@@ -66,7 +61,6 @@ class Navigation {
                                               radius: 20,
                                               identifier: "\(i)")
                 self.locationManager.startMonitoring(for: region)
-                //                let circle = MKCircle(center: region.center, radius: region.radius)
             }
             
             // all the instructions
